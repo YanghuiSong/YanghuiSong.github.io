@@ -1,71 +1,114 @@
-# Yanghui Song — Academic Homepage
+# Yanghui Song Academic Homepage
 
-A responsive academic homepage focused on **remote sensing image intelligent interpretation**. It is ready for GitHub Pages and includes the IEEE GRSL paper:
+面向 **遥感图像智能解译** 的中英双语个人学术主页，适合直接部署到 GitHub Pages。
 
-> **Prompt-Calibrated SAM 3 for Open-Vocabulary Remote-Sensing Semantic Segmentation**  
-> IEEE Geoscience and Remote Sensing Letters, 2026.  
-> DOI: `10.1109/LGRS.2026.3713378`
+当前版本采用纯 HTML、CSS 与 JavaScript，不依赖 npm、Node.js 构建或第三方在线字体。内容由一个配置文件集中驱动，便于长期维护论文、项目和中文界面。
 
-## Features
+## 当前页面内容
 
-- English / Chinese language switch
-- Light / dark appearance
-- Responsive academic layout
-- Featured IEEE publication with IEEE, DOI, arXiv, code, and BibTeX links
-- GitHub project cards with live star counts and static fallbacks
-- SEO and Open Graph metadata
-- Accessible navigation and reduced-motion support
-- No build step and no private data dependency
+- 个人研究简介与真实照片
+- 遥感图像智能解译的三条研究主线
+- IEEE GRSL 2026 代表性论文
+- 论文主图放大查看、论文链接和 BibTeX 复制
+- 开源项目列表与可选 GitHub Star 动态读取
+- 中文 / English 切换
+- 浅色 / 深色主题
+- 桌面端、平板与移动端响应式布局
+- SEO、Open Graph、结构化数据、站点地图
+- GitHub Actions 自动部署
 
-## Open-source components
+## 最重要的维护文件
 
-- **GitHub Pages** for deployment
-- Inline interface icons derived from the visual language of **Lucide Icons** (ISC License)
-- Native browser APIs: Intersection Observer, Clipboard API, Fetch API
+绝大多数内容更新只需要修改：
 
-The page itself is dependency-free HTML/CSS/JavaScript, which makes it fast, auditable, and easy to maintain.
+```text
+assets/site-data.js
+```
 
-## Deploy as the main personal homepage
+其中集中管理：
 
-1. Create a public repository named exactly:
+```text
+profile              个人信息和链接
+hero                 首页首屏文字
+about                个人简介
+researchSection      研究方向
+publications          论文数据
+projects              项目数据
+contact              联系区域
+```
 
-   ```text
-   YanghuiSong.github.io
-   ```
+页面结构和功能分别位于：
 
-2. Copy all files in this folder to the repository root.
-3. Push to the `main` branch.
-4. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-5. The included workflow will deploy the page to:
+```text
+index.html            页面骨架
+assets/styles.css     视觉样式与响应式布局
+assets/app.js         双语渲染、主题、论文弹窗等交互
+```
 
-   ```text
-   https://YanghuiSong.github.io
-   ```
+详细更新说明见 [MAINTENANCE.md](MAINTENANCE.md)。
 
-## Deploy inside an existing repository
+## 本地预览
 
-The site also works as a project page. Upload the files to a repository, enable GitHub Pages with GitHub Actions, and use the generated Pages URL. Because all internal assets are relative paths, no base-path modification is needed.
-
-## Update content
-
-Most content is in `index.html`. Chinese and English interface text is in the `translations` object inside `assets/script.js`.
-
-Useful locations:
-
-- Research directions: search `id="research"`
-- Publication: search `id="publications"`
-- Projects: search `id="projects"`
-- Contact email: search `yanghuisong55@gmail.com`
-- Google Scholar: search `zi6ZBp8AAAAJ`
-
-## Local preview
+在仓库根目录运行：
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+然后访问：
+
+```text
+http://localhost:8000
+```
+
+## 部署到 GitHub Pages
+
+仓库名称建议为：
+
+```text
+YanghuiSong.github.io
+```
+
+上传全部文件后，在 GitHub 仓库中进入：
+
+```text
+Settings → Pages → Build and deployment → Source → GitHub Actions
+```
+
+之后每次向 `main` 分支提交修改，`.github/workflows/deploy-pages.yml` 都会自动发布新版本。
+
+## 目录结构
+
+```text
+.
+├── .github/workflows/deploy-pages.yml
+├── assets/
+│   ├── app.js
+│   ├── site-data.js
+│   ├── styles.css
+│   ├── profile-photo.webp
+│   ├── profile-photo-small.webp
+│   ├── paper-proc-sam3.png
+│   ├── paper-proc-sam3.webp
+│   ├── favicon.svg
+│   └── og-cover.svg
+├── index.html
+├── MAINTENANCE.md
+├── robots.txt
+├── sitemap.xml
+└── .nojekyll
+```
+
+## 技术特点
+
+- 零构建步骤，降低维护成本
+- 系统字体优先，兼顾中国大陆网络环境
+- 中文和英文作为同等内容源维护
+- 原生 `<dialog>`、Clipboard API 和 Intersection Observer
+- 无框架锁定，代码易读且便于迁移
+- 尊重 `prefers-reduced-motion`
+- 适配打印与基础无障碍访问
 
 ## License
 
-The site code is released under the MIT License. Publication titles, author names, and project metadata remain the property of their respective owners.
+站点代码采用 MIT License。论文、图片、作者信息与项目内容的权利归各自所有者所有。
