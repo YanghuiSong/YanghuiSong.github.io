@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt-calibrated remote sensing segmentation</title>
+  <desc id="desc">A stylized remote sensing image passes through prompt calibration and produces a semantic mask.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f0eb"/><stop offset="1" stop-color="#cadbd2"/></linearGradient>
+    <linearGradient id="sat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c8d5b4"/><stop offset="1" stop-color="#6f9885"/></linearGradient>
+    <filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#173a2c" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="900" height="700" fill="url(#bg)"/>
+  <circle cx="770" cy="92" r="170" fill="none" stroke="#2a725b" opacity=".12" stroke-width="2"/>
+  <circle cx="770" cy="92" r="115" fill="none" stroke="#2a725b" opacity=".12" stroke-width="2"/>
+  <g filter="url(#s)">
+    <rect x="70" y="115" width="300" height="410" rx="24" fill="#fff"/>
+    <rect x="92" y="137" width="256" height="260" rx="16" fill="url(#sat)"/>
+    <path d="M92 307c80-23 109 15 172-22 41-24 54-67 84-67v179H92Z" fill="#4f88a0"/>
+    <path d="m93 219 132-82h48L93 274Z" fill="#e8e0c4"/>
+    <path d="m181 397 98-148 34 13-73 135Z" fill="#dcd6bd"/>
+    <g fill="#f1f4ee" stroke="#9ba99f" stroke-width="2">
+      <rect x="121" y="181" width="60" height="42" rx="4" transform="rotate(-14 121 181)"/>
+      <rect x="199" y="156" width="76" height="51" rx="4" transform="rotate(-14 199 156)"/>
+    </g>
+    <g fill="#386a4a"><circle cx="139" cy="287" r="25"/><circle cx="177" cy="278" r="20"/><circle cx="228" cy="327" r="27"/></g>
+    <text x="92" y="443" fill="#17382d" font-family="Arial, sans-serif" font-size="22" font-weight="700">Remote sensing image</text>
+    <text x="92" y="475" fill="#748179" font-family="Arial, sans-serif" font-size="15">Dense objects · scale variation</text>
+  </g>
+
+  <g transform="translate(398 170)">
+    <path d="M0 145h70" stroke="#4c6b60" stroke-width="3" stroke-linecap="round"/>
+    <path d="m59 134 13 11-13 11" fill="none" stroke="#4c6b60" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g filter="url(#s)">
+    <rect x="465" y="76" width="350" height="170" rx="24" fill="#173f31"/>
+    <text x="495" y="112" fill="#8dd7bb" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">OFFLINE PROMPT POOL</text>
+    <g font-family="Arial, sans-serif" font-size="16">
+      <rect x="495" y="137" width="94" height="38" rx="19" fill="#eef6f1"/><text x="522" y="162" fill="#214b3b">airplane</text>
+      <rect x="599" y="137" width="84" height="38" rx="19" fill="#eef6f1"/><text x="627" y="162" fill="#214b3b">bridge</text>
+      <rect x="693" y="137" width="92" height="38" rx="19" fill="#eef6f1"/><text x="717" y="162" fill="#214b3b">harbor</text>
+      <rect x="495" y="185" width="116" height="38" rx="19" fill="#5cb595"/><text x="519" y="210" fill="#fff">roof surface</text>
+      <rect x="621" y="185" width="164" height="38" rx="19" fill="#5cb595"/><text x="646" y="210" fill="#fff">impervious road</text>
+    </g>
+  </g>
+
+  <g filter="url(#s)">
+    <rect x="465" y="284" width="350" height="330" rx="24" fill="#fff"/>
+    <text x="495" y="324" fill="#17382d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Prompt-calibrated SAM 3</text>
+    <text x="495" y="352" fill="#718078" font-family="Arial, sans-serif" font-size="14">Presence-guided residual fusion</text>
+    <g transform="translate(495 383)">
+      <rect width="290" height="170" rx="14" fill="#dce8d7"/>
+      <path d="M0 112c61-19 100 9 148-13 58-27 76-73 142-65v136H0Z" fill="#55889b"/>
+      <path d="m0 59 101-59h45L0 98Z" fill="#e6dfc8"/>
+      <path d="M35 24h85v55H35Z" fill="#e66f50" opacity=".78"/>
+      <path d="M174 20h92v70h-92Z" fill="#2d9a91" opacity=".72"/>
+      <path d="M102 91h100v65H102Z" fill="#d5a62d" opacity=".75"/>
+      <g fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="6 6"><rect x="28" y="17" width="101" height="71" rx="6"/><rect x="166" y="13" width="108" height="84" rx="6"/><rect x="94" y="84" width="116" height="79" rx="6"/></g>
+    </g>
+    <g transform="translate(495 574)" font-family="Arial, sans-serif" font-size="13" font-weight="700">
+      <circle cx="7" cy="7" r="7" fill="#e66f50"/><text x="21" y="12" fill="#6e7b74">semantic</text>
+      <circle cx="100" cy="7" r="7" fill="#2d9a91"/><text x="114" y="12" fill="#6e7b74">instance</text>
+      <circle cx="192" cy="7" r="7" fill="#d5a62d"/><text x="206" y="12" fill="#6e7b74">presence</text>
+    </g>
+  </g>
+</svg>
