@@ -44,7 +44,7 @@
     (() => {
       try {
         const storedLanguage = localStorage.getItem('site-language');
-        const language = storedLanguage || (navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en');
+        const language = storedLanguage || 'en';
         const storedTheme = localStorage.getItem('site-theme');
         const theme = storedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.dataset.lang = language;
