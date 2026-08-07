@@ -1,27 +1,29 @@
 <!doctype html>
-<html lang="zh-CN" data-lang="zh" data-theme="light">
+<html lang="en" data-lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Yanghui Song" />
-  <meta name="description" content="Yanghui Song 的个人学术主页，研究方向为遥感图像智能解译、开放词汇分割、地理空间基础模型与鲁棒高效推理。" />
-  <meta name="theme-color" content="#f5f8f9" />
+  <meta name="description" content="Academic homepage of Yanghui Song. Research interests include intelligent interpretation of remote-sensing imagery, geospatial foundation models, open-vocabulary segmentation, and robust test-time inference." />
+  <meta name="theme-color" content="#f7f8f7" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Yanghui Song | 遥感图像智能解译" />
-  <meta property="og:description" content="遥感图像智能解译、开放词汇分割、地理空间基础模型与鲁棒高效推理。" />
+  <meta property="og:title" content="Yanghui Song | Remote-Sensing Image Intelligence" />
+  <meta property="og:description" content="Research in geospatial foundation models, open-vocabulary segmentation, and robust test-time inference." />
   <meta property="og:image" content="assets/og-cover.svg" />
-  <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:url" content="https://yanghuisong.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://yanghuisong.github.io/" />
-  <title>Yanghui Song | 遥感图像智能解译</title>
+  <title>Yanghui Song | Remote-Sensing Image Intelligence</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="assets/profile-photo-small.webp" as="image" type="image/webp" />
   <link rel="stylesheet" href="assets/styles.css" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Yanghui Song",
+    "alternateName": "宋杨辉",
     "url": "https://yanghuisong.github.io/",
     "email": "mailto:yanghuisong55@gmail.com",
     "affiliation": {
@@ -34,19 +36,22 @@
     ],
     "knowsAbout": [
       "Remote sensing image interpretation",
-      "Open-vocabulary semantic segmentation",
       "Geospatial foundation models",
-      "Test-time adaptation"
+      "Open-vocabulary semantic segmentation",
+      "Robust test-time inference"
     ]
   }
   </script>
+
   <script>
     (() => {
       try {
         const storedLanguage = localStorage.getItem('site-language');
-        const language = storedLanguage || 'en';
+        const language = storedLanguage === 'zh' || storedLanguage === 'en' ? storedLanguage : 'en';
         const storedTheme = localStorage.getItem('site-theme');
-        const theme = storedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.dataset.lang = language;
         document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
         document.documentElement.dataset.theme = theme;
@@ -55,207 +60,196 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-text="ui.accessibility.skip">跳转到主要内容</a>
+  <a class="skip-link" href="#main" data-text="ui.accessibility.skip">Skip to main content</a>
 
   <header class="site-header" id="top">
     <div class="container nav-shell">
       <a class="brand" href="#top" aria-label="Yanghui Song homepage">
-        <span class="brand-mark" aria-hidden="true">YS</span>
-        <span class="brand-copy">
+        <span class="brand-monogram" aria-hidden="true">YS</span>
+        <span class="brand-text">
           <strong>Yanghui Song</strong>
-          <small data-text="profile.researchLabel">遥感图像智能解译</small>
+          <small data-text="profile.researchLabel">Intelligent Interpretation of Remote-Sensing Imagery</small>
         </span>
       </a>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#about" data-text="ui.nav.about">个人简介</a>
-        <a href="#research" data-text="ui.nav.research">研究方向</a>
-        <a href="#publications" data-text="ui.nav.publications">学术论文</a>
-        <a href="#projects" data-text="ui.nav.projects">开源项目</a>
-        <a href="#contact" data-text="ui.nav.contact">联系交流</a>
+        <a href="#about" data-text="ui.nav.about">About</a>
+        <a href="#education" data-text="ui.nav.education">Education</a>
+        <a href="#research" data-text="ui.nav.research">Research</a>
+        <a href="#publications" data-text="ui.nav.publications">Publications</a>
+        <a href="#projects" data-text="ui.nav.projects">Projects</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="utility-button language-toggle" type="button" aria-label="切换为英文">
-          <span class="language-code">EN</span>
+        <button class="icon-button language-toggle" type="button" aria-label="Switch to Chinese">
+          <span class="language-code">中</span>
         </button>
-        <button class="utility-button theme-toggle" type="button" aria-label="切换明暗主题">
-          <svg class="icon moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.7A9 9 0 1 1 11.3 3a7 7 0 0 0 9.7 9.7Z"/></svg>
-          <svg class="icon sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch color theme">
+          <svg class="theme-icon moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/></svg>
+          <svg class="theme-icon sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.8"/><path d="M12 2.3v2.1M12 19.6v2.1M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M2.3 12h2.1M19.6 12h2.1M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"/></svg>
         </button>
-        <button class="utility-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="打开导航菜单">
-          <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg class="icon close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
         </button>
       </div>
     </div>
 
     <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
-      <a href="#about" data-text="ui.nav.about">个人简介</a>
-      <a href="#research" data-text="ui.nav.research">研究方向</a>
-      <a href="#publications" data-text="ui.nav.publications">学术论文</a>
-      <a href="#projects" data-text="ui.nav.projects">开源项目</a>
-      <a href="#contact" data-text="ui.nav.contact">联系交流</a>
+      <a href="#about" data-text="ui.nav.about">About</a>
+      <a href="#education" data-text="ui.nav.education">Education</a>
+      <a href="#research" data-text="ui.nav.research">Research</a>
+      <a href="#publications" data-text="ui.nav.publications">Publications</a>
+      <a href="#projects" data-text="ui.nav.projects">Projects</a>
+      <a href="#contact" data-text="ui.nav.contact">Contact</a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero section-space" aria-labelledby="hero-title">
-      <div class="hero-grid-lines" aria-hidden="true"></div>
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="container hero-layout">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">
-            <span class="eyebrow-line" aria-hidden="true"></span>
-            <span data-text="hero.eyebrow">云南师范大学 · 硕士研究生</span>
-          </div>
-          <h1 id="hero-title">
-            <span data-text="hero.titleLead">面向真实地球观测场景的</span>
-            <strong data-text="hero.titleAccent">遥感图像智能解译</strong>
-          </h1>
-          <p class="hero-summary" data-text="hero.summary">
-            研究聚焦于遥感图像智能解译，重点探索视觉基础模型与视觉语言模型在开放词汇分割、鲁棒推理和高效地理空间感知中的方法与应用。
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#publications">
-              <span data-text="ui.common.viewPublication">查看代表作</span>
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="hero-copy">
+          <div class="eyebrow"><span>RS // 01</span><span data-text="hero.eyebrow">Remote Sensing · Image Intelligence</span></div>
+          <p class="hero-intro" data-text="hero.intro">Hello, I am</p>
+          <h1><span>Yanghui Song</span><small>宋杨辉</small></h1>
+          <p class="hero-summary" data-text="hero.summary"></p>
+          <p class="hero-focus" data-text="hero.focus"></p>
+
+          <div class="hero-links">
+            <a class="button primary" data-profile-link="scholar" target="_blank" rel="noreferrer">
+              <span data-text="ui.common.scholar">Google Scholar</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
             </a>
-            <a class="button button-secondary" data-profile-link="github" href="https://github.com/YanghuiSong" target="_blank" rel="noreferrer">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 1.8a13.4 13.4 0 0 0-6 0C5.8.1 4.7.5 4.7.5A5 5 0 0 0 4.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 9 18v4"/><path d="M9 18c-3 .9-3-1.5-4-2"/></svg>
+            <a class="button secondary" data-profile-link="github" target="_blank" rel="noreferrer">
               <span data-text="ui.common.github">GitHub</span>
             </a>
-            <a class="button button-quiet" data-profile-link="scholar" href="https://scholar.google.com/citations?user=zi6ZBp8AAAAJ" target="_blank" rel="noreferrer">
-              <span data-text="ui.common.scholar">Google Scholar</span>
-            </a>
+            <a class="text-link" data-profile-link="email"><span data-text="ui.common.email">Email</span></a>
           </div>
-          <div class="metric-row" id="hero-metrics" aria-label="Research highlights"></div>
         </div>
 
-        <figure class="profile-visual reveal">
-          <div class="photo-frame">
+        <figure class="portrait-block">
+          <div class="portrait-frame">
             <picture>
               <source media="(max-width: 720px)" srcset="assets/profile-photo-small.webp" type="image/webp" />
-              <img src="assets/profile-photo.webp" alt="Yanghui Song in a mountain landscape" width="1120" height="1400" fetchpriority="high" />
+              <img src="assets/profile-photo.webp" alt="Portrait of Yanghui Song" width="1120" height="1400" fetchpriority="high" />
             </picture>
-            <span class="frame-corner corner-top" aria-hidden="true"></span>
-            <span class="frame-corner corner-bottom" aria-hidden="true"></span>
-            <div class="photo-scan" aria-hidden="true"></div>
+            <span class="geo-corner top-left" aria-hidden="true"></span>
+            <span class="geo-corner bottom-right" aria-hidden="true"></span>
+            <span class="geo-label" aria-hidden="true">25°N · 102°E</span>
           </div>
           <figcaption>
-            <strong data-text="hero.photoCaption">从地球观测影像到开放世界理解</strong>
-            <span data-text="hero.photoMeta">视觉基础模型 · 开放词汇感知 · 鲁棒推理</span>
+            <span data-text="hero.portraitCaption">Yunnan Normal University · School of Information Science and Technology</span>
+            <span data-text="profile.location">Kunming, Yunnan, China</span>
           </figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="section-space soft-section" id="about" aria-labelledby="about-title">
-      <div class="container about-layout">
-        <div class="section-heading reveal">
-          <span class="section-kicker" data-text="about.kicker">个人简介</span>
-          <h2 id="about-title" data-text="about.title">围绕遥感图像智能解译，构建统一而持续的研究主线。</h2>
+    <section class="section section-soft" id="about" aria-labelledby="about-title">
+      <div class="container two-column-section">
+        <div class="section-heading">
+          <span class="section-index">01</span>
+          <span class="section-kicker" data-text="about.kicker">About</span>
+          <h2 id="about-title" data-text="about.title"></h2>
         </div>
-        <div class="about-body reveal">
+        <div class="content-column">
           <div class="about-prose" id="about-paragraphs"></div>
-          <dl class="profile-details" id="profile-details"></dl>
+          <dl class="fact-list" id="about-facts"></dl>
         </div>
       </div>
     </section>
 
-    <section class="section-space" id="research" aria-labelledby="research-title">
-      <div class="container">
-        <div class="section-heading section-heading-wide reveal">
-          <span class="section-kicker" data-text="researchSection.kicker">研究方向</span>
-          <h2 id="research-title" data-text="researchSection.title">从基础模型到可靠推理的遥感智能解译。</h2>
-          <p data-text="researchSection.intro">以开放世界地理空间感知为目标，关注方法的准确性、鲁棒性、可解释性与部署效率。</p>
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container two-column-section">
+        <div class="section-heading">
+          <span class="section-index">02</span>
+          <span class="section-kicker" data-text="education.kicker">Education</span>
+          <h2 id="education-title" data-text="education.title"></h2>
         </div>
-        <div class="research-grid" id="research-grid"></div>
+        <div class="timeline" id="education-list"></div>
       </div>
     </section>
 
-    <section class="section-space publication-section" id="publications" aria-labelledby="publications-title">
+    <section class="section section-soft" id="research" aria-labelledby="research-title">
       <div class="container">
-        <div class="section-heading section-heading-wide reveal">
-          <span class="section-kicker" data-text="publicationsSection.kicker">学术论文</span>
-          <h2 id="publications-title" data-text="publicationsSection.title">代表性研究成果</h2>
-          <p data-text="publicationsSection.intro">论文信息、主图、代码与 BibTeX 均由配置文件统一管理，后续可直接追加新条目。</p>
+        <div class="section-heading wide-heading">
+          <span class="section-index">03</span>
+          <span class="section-kicker" data-text="research.kicker">Research</span>
+          <h2 id="research-title" data-text="research.title"></h2>
+          <p data-text="research.intro"></p>
+        </div>
+        <div class="research-list" id="research-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <div class="section-heading wide-heading">
+          <span class="section-index">04</span>
+          <span class="section-kicker" data-text="publications.kicker">Publications</span>
+          <h2 id="publications-title" data-text="publications.title"></h2>
+          <p data-text="publications.intro"></p>
         </div>
         <div class="publication-list" id="publication-list"></div>
       </div>
     </section>
 
-    <section class="section-space" id="projects" aria-labelledby="projects-title">
+    <section class="section section-soft" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <div class="section-heading split-heading reveal">
+        <div class="section-heading projects-heading">
           <div>
-            <span class="section-kicker" data-text="projectsSection.kicker">开源项目</span>
-            <h2 id="projects-title" data-text="projectsSection.title">与遥感图像智能解译相关的代码与研究资源</h2>
+            <span class="section-index">05</span>
+            <span class="section-kicker" data-text="projects.kicker">Projects</span>
+            <h2 id="projects-title" data-text="projects.title"></h2>
+            <p data-text="projects.intro"></p>
           </div>
-          <a class="inline-link" data-profile-link="repositories" href="https://github.com/YanghuiSong?tab=repositories" target="_blank" rel="noreferrer">
-            <span data-text="ui.common.allRepositories">查看全部仓库</span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <a class="text-link repositories-link" data-profile-link="repositories" target="_blank" rel="noreferrer">
+            <span data-text="ui.common.allRepositories">All GitHub repositories</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
           </a>
         </div>
         <div class="project-grid" id="project-grid"></div>
       </div>
     </section>
 
-    <section class="section-space contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="contact-panel reveal">
-          <div>
-            <span class="section-kicker section-kicker-light" data-text="contact.kicker">联系交流</span>
-            <h2 id="contact-title" data-text="contact.title">欢迎围绕遥感基础模型、开放词汇感知与测试时适应开展交流。</h2>
-            <p data-text="contact.text">欢迎学术讨论、复现合作和开源项目共建。邮件是最直接的联系方式。</p>
-          </div>
-          <div class="contact-actions">
-            <a class="button contact-button" data-profile-link="email" href="mailto:yanghuisong55@gmail.com">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg>
-              <span data-text="ui.common.emailMe">发送邮件</span>
-            </a>
-            <a class="button contact-button contact-button-secondary" data-profile-link="scholar" href="https://scholar.google.com/citations?user=zi6ZBp8AAAAJ" target="_blank" rel="noreferrer">
-              <span data-text="ui.common.scholar">Google Scholar</span>
-            </a>
-          </div>
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div>
+          <span class="section-index">06</span>
+          <span class="section-kicker" data-text="contact.kicker">Contact</span>
+          <h2 id="contact-title" data-text="contact.title"></h2>
+          <p data-text="contact.text"></p>
+        </div>
+        <div class="contact-links">
+          <a data-profile-link="email"><span data-text="ui.common.email">Email</span><strong data-profile-email></strong></a>
+          <a data-profile-link="scholar" target="_blank" rel="noreferrer"><span data-text="ui.common.scholar">Google Scholar</span><strong>Scholar Profile</strong></a>
+          <a data-profile-link="github" target="_blank" rel="noreferrer"><span data-text="ui.common.github">GitHub</span><strong>@YanghuiSong</strong></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-layout">
-      <div class="footer-identity">
-        <strong>Yanghui Song</strong>
-        <span data-text="footer.note">遥感图像智能解译 · 基于 GitHub Pages 构建</span>
-      </div>
-      <div class="footer-links">
-        <a data-profile-link="email" href="mailto:yanghuisong55@gmail.com">Email</a>
-        <a data-profile-link="github" href="https://github.com/YanghuiSong" target="_blank" rel="noreferrer">GitHub</a>
-        <a data-profile-link="scholar" href="https://scholar.google.com/citations?user=zi6ZBp8AAAAJ" target="_blank" rel="noreferrer">Scholar</a>
-      </div>
-      <p>© <span id="current-year">2026</span> Yanghui Song</p>
+    <div class="container footer-row">
+      <span>© <span id="current-year"></span> Yanghui Song</span>
+      <span data-text="footer.note">Remote-Sensing Image Intelligence · GitHub Pages</span>
     </div>
   </footer>
 
-  <button class="back-to-top" type="button" aria-label="返回顶部">
-    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
-  </button>
-
-  <dialog class="figure-dialog" id="figure-dialog">
-    <div class="dialog-toolbar">
-      <span id="dialog-title">Publication figure</span>
-      <button class="dialog-close" type="button" aria-label="关闭大图">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-      </button>
-    </div>
-    <div class="dialog-image-wrap">
-      <img id="dialog-image" src="" alt="" />
+  <dialog class="figure-dialog" id="figure-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <div class="dialog-head">
+        <strong id="dialog-title"></strong>
+        <button class="dialog-close" type="button" aria-label="Close publication figure">×</button>
+      </div>
+      <img id="dialog-image" alt="" />
     </div>
   </dialog>
 
   <div class="toast" role="status" aria-live="polite" hidden></div>
 
-  <script src="assets/site-data.js" defer></script>
-  <script src="assets/app.js" defer></script>
+  <script src="assets/site-data.js"></script>
+  <script src="assets/app.js"></script>
 </body>
 </html>

@@ -1,10 +1,27 @@
-# 主页长期维护指南
+# 个人学术主页维护指南
 
-本版本的核心原则是：**内容与界面代码分离**。日常更新通常只编辑 `assets/site-data.js`，不需要修改复杂 HTML。
+这版主页的目标是：**日常维护只修改 `assets/site-data.js`**。除非要改变页面布局，否则不用碰 HTML、CSS 和 JavaScript 逻辑。
 
----
+## 1. 默认显示英文
 
-## 1. 修改中文或英文文案
+配置位于：
+
+```javascript
+settings: {
+  defaultLanguage: 'en'
+}
+```
+
+首次访问默认英文。访客如果手动切换为中文，浏览器会记住其选择。
+
+若你自己以前访问过旧版本并保存了中文，可以在浏览器控制台执行：
+
+```javascript
+localStorage.removeItem('site-language');
+location.reload();
+```
+
+## 2. 修改个人简介 / 履历
 
 打开：
 
@@ -12,7 +29,15 @@
 assets/site-data.js
 ```
 
-所有双语字段统一采用：
+找到：
+
+```javascript
+about: {
+  paragraphs: [ ... ]
+}
+```
+
+每段都使用：
 
 ```javascript
 {
@@ -21,54 +46,64 @@ assets/site-data.js
 }
 ```
 
-例如修改首页介绍：
+建议中文和英文事实保持完全一致，但无需逐字翻译。
+
+## 3. 修改教育经历
+
+找到：
 
 ```javascript
-summary: {
-  zh: '新的中文介绍。',
-  en: 'New English introduction.'
+education: {
+  items: [ ... ]
 }
 ```
 
-建议每次同时维护 `zh` 和 `en`，避免两个版本信息不同步。
-
----
-
-## 2. 新增论文
-
-在 `assets/site-data.js` 中找到：
-
-```javascript
-publications: [
-  // 论文条目
-]
-```
-
-复制现有论文对象，粘贴到数组末尾，并修改：
+每段经历模板：
 
 ```javascript
 {
-  id: 'unique-paper-id',
+  period: { zh: '2026—至今', en: '2026 — Present' },
+  degree: { zh: '电子信息 · 研究生阶段', en: 'Electronic Information · Graduate Study' },
+  school: { zh: '学校/学院', en: 'School / University' },
+  note: { zh: '培养计划或备注', en: 'Program or note' }
+}
+```
+
+## 4. 新增论文
+
+找到：
+
+```javascript
+publications: {
+  items: [ ... ]
+}
+```
+
+复制现有论文对象，在数组后追加：
+
+```javascript
+{
+  id: 'paper-short-id',
   featured: false,
   year: '2027',
-  venue: 'AAAI Conference on Artificial Intelligence',
+  venue: 'Full Venue Name',
   venueShort: 'AAAI',
   type: { zh: '会议论文', en: 'Conference Paper' },
-  title: 'Your New Paper Title',
+  title: 'Paper Title',
   authors: [
     { name: 'Yanghui Song', self: true },
     { name: 'Coauthor Name' }
   ],
   meta: ['Accepted'],
   abstract: {
-    zh: '中文简介。',
-    en: 'English summary.'
+    zh: '适合主页阅读的中文简介，不必粘贴完整摘要。',
+    en: 'A concise homepage summary rather than the entire abstract.'
   },
   thumbnail: 'assets/paper-new.webp',
   image: 'assets/paper-new.png',
   imageAlt: {
-    zh: '论文方法图中文说明。',
-    en: 'English description of the method figure.'
+    zh: '论文主图说明',
+    en: 'Description of the paper figure'
   },
   links: [
     { label: 'Paper', url: 'https://...', primary: true },
@@ -79,147 +114,129 @@ publications: [
 }
 ```
 
-### 图片建议
-
-- 原始主图：`PNG`，用于放大查看
-- 首页缩略图：`WebP`，用于提高加载速度
-- 推荐宽度：1600–2200 px
-- 文件名使用英文小写与连字符，不使用中文和空格
-
-例如：
+论文图片建议：
 
 ```text
-assets/paper-new.png
-assets/paper-new.webp
+PNG   原始高清图，用于点击放大
+WebP  网页缩略图，用于快速加载
 ```
 
----
+建议文件名：
 
-## 3. 更换个人照片
+```text
+assets/paper-method-name.png
+assets/paper-method-name.webp
+```
 
-当前首页使用：
+## 5. 更换头像
+
+直接覆盖：
 
 ```text
 assets/profile-photo.webp
 assets/profile-photo-small.webp
 ```
 
-最简单的方式是使用相同文件名覆盖这两个文件。
+推荐比例：`4:5`。
 
-推荐：
+推荐尺寸：
 
 ```text
 profile-photo.webp        1120 × 1400 左右
 profile-photo-small.webp   560 × 700 左右
-比例                       4:5
 ```
 
-覆盖后如浏览器仍显示旧图，可在 `index.html` 中临时将：
+如果 GitHub Pages 更新后浏览器仍显示旧头像，可清除缓存，或临时给图片路径添加版本参数。
 
-```html
-assets/profile-photo.webp
-```
+## 6. 修改研究方向
 
-改为：
-
-```html
-assets/profile-photo.webp?v=2
-```
-
-用于刷新缓存。
-
----
-
-## 4. 新增或修改项目
-
-在 `assets/site-data.js` 中找到：
+找到：
 
 ```javascript
-projects: [
-  // 项目条目
-]
+research: {
+  items: [ ... ]
+}
 ```
 
-项目模板：
+建议长期维持 **3 个主方向**，不要持续增加小方向。个人主页比简历更需要突出一条统一的研究主线。
+
+## 7. 新增 / 删除项目
+
+找到：
+
+```javascript
+projects: {
+  items: [ ... ]
+}
+```
+
+模板：
 
 ```javascript
 {
   repo: 'Repository-Name',
-  title: 'Project Title',
-  status: { zh: '研究代码', en: 'Research Code' },
+  title: 'Project Name',
+  label: { zh: '研究代码', en: 'Research Code' },
   description: {
-    zh: '中文项目简介。',
-    en: 'English project description.'
+    zh: '简洁中文简介。',
+    en: 'Concise English description.'
   },
-  tags: ['Python', 'Remote Sensing'],
-  url: 'https://github.com/YanghuiSong/Repository-Name',
-  featured: false
+  tags: ['Remote Sensing', 'SAM 3'],
+  url: 'https://github.com/YanghuiSong/Repository-Name'
 }
 ```
 
-`repo` 用于读取 GitHub Star。仓库不存在、私有或 API 暂时不可用时，Star 数会自动隐藏，不会影响项目卡片显示。
+主页建议只保留 3–6 个与你当前研究方向最相关的仓库。
 
----
+## 8. 修改邮箱 / GitHub / Scholar
 
-## 5. 修改邮箱、GitHub 或 Scholar
-
-只需要修改 `assets/site-data.js` 顶部的：
+在文件顶部修改：
 
 ```javascript
 profile: {
-  email: 'your-email@example.com',
-  github: 'https://github.com/YourName',
-  scholar: 'https://scholar.google.com/...'
+  email: '...',
+  github: '...',
+  scholar: '...',
+  repositories: '...'
 }
 ```
 
-页面顶部、联系区域和页脚会同步更新。
+全站会同步更新。
 
----
+## 9. 中文界面的维护建议
 
-## 6. 中文界面维护规则
+- 首页中文介绍控制在约 80–140 字。
+- About 每段约 90–180 字。
+- 研究方向标题尽量短，说明控制在 60–110 字。
+- 专有名词如 SAM 3、OVSS、TTA、IEEE GRSL 保留英文。
+- 不要把所有英文术语都加中文括号解释，会破坏阅读节奏。
+- 中英文保持事实一致，但中文应自然表达，不要直译式句法。
 
-为了保持中文页面的阅读质量，建议：
+## 10. 发布
 
-1. 中文标题尽量控制在 14–26 个汉字。
-2. 首页简介控制在 70–120 个汉字。
-3. 研究方向说明控制在 60–100 个汉字。
-4. 不在中文句子中堆叠过多英文缩写。
-5. 模型名称、会议名、方法名保留英文原名。
-6. 技术标签保持简短，如 `SAM 3`、`OVSS`、`TTA`。
-7. 中文和英文表达不必逐字直译，但事实必须一致。
-
----
-
-## 7. 发布更新
-
-GitHub 网页端修改后：
+GitHub 网页修改后点击：
 
 ```text
 Commit changes
 ```
 
-或者本地提交：
+或本地：
 
 ```bash
 git add .
-git commit -m "Update homepage content"
+git commit -m "Update homepage"
 git push origin main
 ```
 
-随后查看：
+然后查看：
 
 ```text
 Actions → Deploy static homepage
 ```
 
-出现绿色勾号后，主页会自动更新。
+出现绿色勾号即完成发布。
 
----
-
-## 8. 不建议随意修改的文件
-
-以下文件已经承担页面结构和交互，普通内容更新无需修改：
+## 11. 哪些文件平时不要改
 
 ```text
 index.html
@@ -228,4 +245,4 @@ assets/app.js
 .github/workflows/deploy-pages.yml
 ```
 
-确需调整布局时，建议先创建分支或备份当前版本。
+这些文件分别承担页面骨架、视觉系统、交互逻辑和自动部署。普通内容更新不需要修改它们。

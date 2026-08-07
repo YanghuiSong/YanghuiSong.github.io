@@ -1,14 +1,19 @@
 # Changelog
 
-## V2.0 — Content-driven bilingual academic homepage
+## v3.0 — Academic Focus
 
-- Rebuilt the visual system around a restrained geospatial-technology style.
-- Replaced the abstract hero illustration with the uploaded personal photograph.
-- Replaced the publication placeholder with the uploaded ProC-SAM3 method figure.
-- Moved bilingual content, publications, projects, and personal links into `assets/site-data.js`.
-- Added publication arrays, per-paper BibTeX, figure enlargement, and scalable project cards.
-- Improved Chinese typography, line lengths, spacing, and mobile readability.
-- Added automatic language selection, persistent theme/language preferences, and dark mode.
-- Added SEO metadata, structured person data, Open Graph cover, robots file, and sitemap.
-- Added GitHub Pages deployment workflow and a Chinese-first maintenance guide.
-- Added responsive image derivatives for faster loading.
+- Reworked the visual system toward a mainstream academic-homepage layout.
+- Removed metric-heavy and landing-page-like presentation from the hero.
+- Added a dedicated Education section and integrated the updated personal biography.
+- Set English as the first-visit default while retaining remembered visitor preference.
+- Strengthened Chinese typography and maintained Chinese content as an independent interface.
+- Simplified research cards, publication presentation, projects, and contact hierarchy.
+- Kept only restrained geospatial identity details: coordinate marker, grid, thin technical rules.
+- Removed unnecessary dynamic GitHub-star fetching and scroll-reveal effects.
+- Preserved zero-build GitHub Pages deployment and one-file routine content management.
+
+## v2.0
+
+- Introduced bilingual configuration-driven content.
+- Added publication figure viewing and per-paper BibTeX copying.
+- Added responsive dark/light themes and GitHub Pages workflow.
