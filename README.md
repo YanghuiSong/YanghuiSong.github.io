@@ -17,10 +17,11 @@ A lightweight bilingual academic homepage for **Remote-Sensing Image Intelligenc
 1. Hero / academic identity
 2. About
 3. Education
-4. Research directions
-5. Selected publications
-6. Open-source projects
-7. Contact
+4. Honors & Awards
+5. Research directions
+6. Selected publications
+7. Open-source projects
+8. Contact
 
 ## Routine maintenance
 
@@ -38,6 +39,7 @@ profile         name, affiliation, email, GitHub, Scholar
 hero            first-screen introduction
 about           bilingual biography and quick facts
 education       education timeline
+honors          selected honors, dates, issuers, official links
 research        research directions
 publications    publication entries, links, figure, BibTeX
 projects        highlighted repositories

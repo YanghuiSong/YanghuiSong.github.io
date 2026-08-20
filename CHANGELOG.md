@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.1 — Honors & Awards
+
+- Added a dedicated bilingual Honors & Awards section between Education and Research.
+- Added three official-linked distinctions from 2025–2026 in reverse chronological order.
+- Added an Honors navigation entry on desktop and mobile.
+- Added structured `award` metadata for search engines.
+- Extended `assets/site-data.js` so future honors can be added without editing page markup.
+- Updated section numbering and alternating section backgrounds for clearer reading rhythm.
+- Expanded the Chinese maintenance guide with an honors-entry template.
+
 ## v3.0 — Academic Focus
 
 - Reworked the visual system toward a mainstream academic-homepage layout.
