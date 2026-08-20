@@ -221,6 +221,23 @@ html[data-theme="light"] .theme-icon.sun, html[data-theme="dark"] .theme-icon.mo
 .timeline-school { margin: 6px 0 0; color: var(--text-2); font-size: 14px; }
 .timeline-note { margin: 8px 0 0; color: var(--text-3); font-size: 12.5px; }
 
+
+/* Honors & Awards */
+.honors-list { min-width: 0; }
+.honor-item { align-items: start; }
+.honor-body h3 { max-width: 760px; line-height: 1.48; }
+.honor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: var(--accent-ink);
+  font-size: 11.5px;
+  font-weight: 760;
+}
+.honor-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.honor-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 /* Research */
 .research-list { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-strong); }
 .research-item { position: relative; min-height: 318px; padding: 30px 30px 26px 0; border-bottom: 1px solid var(--line); }

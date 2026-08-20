@@ -51,6 +51,7 @@ window.SITE_DATA = {
     nav: {
       about: { zh: '简介', en: 'About' },
       education: { zh: '教育经历', en: 'Education' },
+      honors: { zh: '荣誉', en: 'Honors' },
       research: { zh: '研究方向', en: 'Research' },
       publications: { zh: '论文', en: 'Publications' },
       projects: { zh: '项目', en: 'Projects' },
@@ -68,7 +69,8 @@ window.SITE_DATA = {
       viewRepository: { zh: '查看仓库', en: 'Repository' },
       allRepositories: { zh: '全部 GitHub 仓库', en: 'All GitHub repositories' },
       selected: { zh: '代表作', en: 'Selected work' },
-      present: { zh: '至今', en: 'Present' }
+      present: { zh: '至今', en: 'Present' },
+      officialNotice: { zh: '官方链接', en: 'Official notice' }
     },
     accessibility: {
       skip: { zh: '跳转到主要内容', en: 'Skip to main content' },
@@ -144,6 +146,57 @@ window.SITE_DATA = {
         degree: { zh: '本科阶段', en: 'Undergraduate Study' },
         school: { zh: '云南师范大学信息学院', en: 'School of Information Science and Technology, Yunnan Normal University' },
         note: { zh: '完成本科阶段学习，并通过推荐免试进入后续培养阶段', en: 'Completed undergraduate study and advanced to postgraduate training through recommendation-based admission' }
+      }
+    ]
+  },
+
+
+  honors: {
+    kicker: { zh: '荣誉与奖励', en: 'Honors & Awards' },
+    title: {
+      zh: '阶段性荣誉与认可',
+      en: 'Selected honors and distinctions'
+    },
+    intro: {
+      zh: '按时间倒序记录具有代表性的奖学金与荣誉称号。后续新增条目只需继续在本配置数组中追加。',
+      en: 'Selected scholarships and distinctions are listed in reverse chronological order. Future honors can be added directly to this configuration array.'
+    },
+    items: [
+      {
+        period: { zh: '2026.05', en: 'May 2026' },
+        title: {
+          zh: '2025—2026学年省级五好学生 · 2026届优秀毕业生',
+          en: 'Provincial Five-Good Student (2025–2026) · Outstanding Graduate, Class of 2026'
+        },
+        issuer: {
+          zh: '云南省教育厅',
+          en: 'Yunnan Provincial Department of Education'
+        },
+        url: 'https://jyt.yn.gov.cn/article/2147452911'
+      },
+      {
+        period: { zh: '2026.01', en: 'Jan. 2026' },
+        title: {
+          zh: '云南师范大学校级优秀毕业生',
+          en: 'Outstanding Graduate, Yunnan Normal University'
+        },
+        issuer: {
+          zh: '云南师范大学',
+          en: 'Yunnan Normal University'
+        },
+        url: 'https://ynnu.jysd.com/news/view/aid/341849/tag/tzgg'
+      },
+      {
+        period: { zh: '2025.10', en: 'Oct. 2025' },
+        title: {
+          zh: '2024—2025学年本科生国家奖学金',
+          en: 'National Scholarship for Undergraduate Students, 2024–2025 Academic Year'
+        },
+        issuer: {
+          zh: '云南师范大学信息学院',
+          en: 'School of Information Science and Technology, Yunnan Normal University'
+        },
+        url: 'https://cic.ynnu.edu.cn/info/1069/1496.htm'
       }
     ]
   },

@@ -76,6 +76,22 @@
     `).join('');
   }
 
+
+  function renderHonors() {
+    const container = $('#honors-list');
+    if (!container) return;
+    container.innerHTML = data.honors.items.map((item) => `
+      <article class="timeline-item honor-item">
+        <div class="timeline-period">${escapeHTML(localized(item.period))}</div>
+        <div class="timeline-body honor-body">
+          <h3>${escapeHTML(localized(item.title))}</h3>
+          <p class="timeline-school">${escapeHTML(localized(item.issuer))}</p>
+          ${item.url ? `<a class="honor-link" href="${escapeHTML(item.url)}" target="_blank" rel="noreferrer"><span>${escapeHTML(localized(data.ui.common.officialNotice))}</span>${arrowIcon}</a>` : ''}
+        </div>
+      </article>
+    `).join('');
+  }
+
   function renderResearch() {
     const container = $('#research-list');
     if (!container) return;
@@ -179,6 +195,7 @@
     renderTextBindings();
     renderAbout();
     renderEducation();
+    renderHonors();
     renderResearch();
     renderPublications();
     renderProjects();
