@@ -1,0 +1,2219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta name="description" content="遥感图像解译 × 人工智能科研新生学习路线：传统CV、Foundation Model、VLM、MLLM与Agentic Earth Observation。">
+  <title>遥感图像解译 × AI 科研学习路线</title>
+  <link rel="stylesheet" href="./assets/guide.css">
+</head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="menu-button" id="menuButton" aria-label="打开目录" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="brand">
+        <div class="brand-kicker">REMOTE SENSING · AI RESEARCH GUIDE</div>
+        <div class="brand-title">遥感图像解译 × 人工智能科研学习路线</div>
+      </div>
+      <a class="source-link" href="./guide.md" target="_blank" rel="noopener noreferrer">Markdown</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="文章目录">
+      <div class="sidebar-inner">
+        <div class="sidebar-heading">CONTENTS</div>
+        <nav id="toc"></nav>
+        <div class="sidebar-note">
+          <strong>2026 Edition</strong>
+          <span>For new students</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <article class="article" id="article">
+        <h1>遥感图像解译 × 人工智能科研：新生入门与进阶学习路线（2026版）</h1>
+<blockquote>
+<p><strong>适用对象</strong>：准备进入遥感图像解译、计算机视觉（CV）、视觉语言模型（VLM）、多模态大语言模型（MLLM）与 Agentic Earth Observation 方向开展科研的本科高年级/硕士新生。<br />
+<strong>版本日期</strong>：2026-09-08<br />
+<strong>核心原则</strong>：先把“图像—任务—指标—代码”学明白，再进入 VLM / MLLM / Agent。不要跳过传统 CV、遥感基础和实验规范。<br />
+<strong>资源筛选规则</strong>：</p>
+<ol>
+<li>本文列入“必读/进阶论文”的论文均给出可公开访问的代码仓库或公开实现；</li>
+<li>列入“必会模型”的模型均配有可在 Bilibili 学习的中文解读/源码/复现视频；</li>
+<li>推荐优先阅读论文英文原文，并把视频作为辅助，不要用视频代替论文；</li>
+<li>前沿模型、代码仓库和视频链接可能随时间变化，建议每学期更新一次。</li>
+</ol>
+</blockquote>
+<hr />
+<h2>0. 先明确：我们研究的“遥感图像解译”是什么？</h2>
+<p>遥感图像解译并不是“给卫星图片套一个网络”。完整的研究对象包括：</p>
+<ul>
+<li><strong>场景级理解</strong>：scene classification、multi-label classification；</li>
+<li><strong>目标级理解</strong>：object detection、oriented object detection、counting、tracking；</li>
+<li><strong>像素级理解</strong>：semantic segmentation、instance segmentation、panoptic segmentation、referring segmentation；</li>
+<li><strong>时序理解</strong>：change detection、bi-temporal / multi-temporal interpretation；</li>
+<li><strong>多传感器理解</strong>：optical、SAR、infrared、multispectral、hyperspectral；</li>
+<li><strong>视觉—语言理解</strong>：image-text retrieval、captioning、VQA、grounding、open-vocabulary recognition；</li>
+<li><strong>开放世界理解</strong>：zero-shot、open-vocabulary、open-set、training-free inference；</li>
+<li><strong>通用遥感基础模型</strong>：self-supervised pretraining、foundation models；</li>
+<li><strong>多模态大模型</strong>：RS-VLM / RS-MLLM；</li>
+<li><strong>智能体地球观测</strong>：Agent 根据自然语言意图进行任务规划、工具选择、检测/分割/变化检测调用与结果解释。</li>
+</ul>
+<p>建议把自己的能力树理解为：</p>
+<pre><code class="language-text">数学 / Python / Linux / Git
+        ↓
+OpenCV + PyTorch + 遥感基础
+        ↓
+CNN → Transformer
+        ↓
+分类 / 检测 / 分割 / 变化检测
+        ↓
+视觉基础模型 DINO / SAM
+        ↓
+CLIP / Grounding / Open-Vocabulary
+        ↓
+RemoteCLIP / SegEarth-OV / RemoteSAM
+        ↓
+BLIP-2 / LLaVA / Qwen-VL
+        ↓
+GeoChat / EarthGPT / LHRS-Bot
+        ↓
+Reasoning / Tool Use / ReAct
+        ↓
+RemoteReasoner / RemoteAgent / Agentic EO
+</code></pre>
+<hr />
+<h1>1. 入组前必须具备的基础能力</h1>
+<h2>1.1 Python 与工程基础</h2>
+<p>至少能够独立完成：</p>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Python 基础语法、类、装饰器、迭代器、上下文管理器；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>NumPy 张量操作；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Pandas 基础数据处理；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Matplotlib 可视化；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>OpenCV 图像读写与基本处理；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>PyTorch Dataset / DataLoader；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>自己写一个 <code>nn.Module</code>；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>自己写训练循环；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>计算 Accuracy / Precision / Recall / F1 / IoU / mIoU；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>保存和加载 checkpoint；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>理解 <code>train()</code> / <code>eval()</code> / <code>torch.no_grad()</code>；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Linux 文件、权限、进程与显卡查看；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>SSH、scp/rsync；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Conda 环境管理；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Git clone / pull / branch / commit / merge；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>阅读 README 并把陌生仓库运行起来；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>使用 TensorBoard 或 Weights &amp; Biases 记录实验。</li>
+</ul>
+<h3>必会工具</h3>
+<pre><code class="language-text">Python
+PyTorch
+TorchVision
+OpenCV
+NumPy
+Matplotlib
+Git
+Linux
+Conda / Mamba
+CUDA 基础
+VS Code / PyCharm
+Jupyter
+TensorBoard / WandB
+LaTeX / Overleaf
+Zotero
+</code></pre>
+<h3>遥感方向额外工具</h3>
+<pre><code class="language-text">GDAL
+Rasterio
+GeoPandas
+Shapely
+QGIS
+OpenCV
+MMEngine
+MMCV
+MMDetection
+MMSegmentation
+MMRotate / rotated detection 工具
+Hugging Face Transformers
+PEFT
+LLaMA-Factory / ms-swift（进入 MLLM 阶段后）
+</code></pre>
+<hr />
+<h1>2. 前置“专业英语”学习</h1>
+<p>科研英语的目标不是通过英语考试，而是达到：</p>
+<blockquote>
+<p><strong>能够不依赖全文翻译，直接阅读英文论文、README、Issue、代码注释和实验日志。</strong></p>
+</blockquote>
+<hr />
+<h2>2.1 第一批必须熟记的遥感英语</h2>
+<table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>remote sensing</td>
+  <td>遥感</td>
+</tr>
+<tr>
+  <td>Earth observation (EO)</td>
+  <td>地球观测</td>
+</tr>
+<tr>
+  <td>remote sensing imagery (RSI)</td>
+  <td>遥感影像</td>
+</tr>
+<tr>
+  <td>aerial imagery</td>
+  <td>航空/航拍影像</td>
+</tr>
+<tr>
+  <td>satellite imagery</td>
+  <td>卫星影像</td>
+</tr>
+<tr>
+  <td>optical imagery</td>
+  <td>光学影像</td>
+</tr>
+<tr>
+  <td>synthetic aperture radar (SAR)</td>
+  <td>合成孔径雷达</td>
+</tr>
+<tr>
+  <td>infrared imagery</td>
+  <td>红外影像</td>
+</tr>
+<tr>
+  <td>multispectral imagery</td>
+  <td>多光谱影像</td>
+</tr>
+<tr>
+  <td>hyperspectral imagery</td>
+  <td>高光谱影像</td>
+</tr>
+<tr>
+  <td>spatial resolution</td>
+  <td>空间分辨率</td>
+</tr>
+<tr>
+  <td>spectral resolution</td>
+  <td>光谱分辨率</td>
+</tr>
+<tr>
+  <td>temporal resolution</td>
+  <td>时间分辨率</td>
+</tr>
+<tr>
+  <td>radiometric resolution</td>
+  <td>辐射分辨率</td>
+</tr>
+<tr>
+  <td>ground sample distance (GSD)</td>
+  <td>地面采样距离</td>
+</tr>
+<tr>
+  <td>revisit</td>
+  <td>重访</td>
+</tr>
+<tr>
+  <td>swath</td>
+  <td>幅宽</td>
+</tr>
+<tr>
+  <td>off-nadir</td>
+  <td>非正下视/侧视</td>
+</tr>
+<tr>
+  <td>incidence angle</td>
+  <td>入射角</td>
+</tr>
+<tr>
+  <td>georeferencing</td>
+  <td>地理配准</td>
+</tr>
+<tr>
+  <td>co-registration</td>
+  <td>共配准</td>
+</tr>
+<tr>
+  <td>orthorectification</td>
+  <td>正射校正</td>
+</tr>
+<tr>
+  <td>coordinate reference system (CRS)</td>
+  <td>坐标参考系统</td>
+</tr>
+<tr>
+  <td>map projection</td>
+  <td>地图投影</td>
+</tr>
+<tr>
+  <td>raster</td>
+  <td>栅格</td>
+</tr>
+<tr>
+  <td>vector</td>
+  <td>矢量</td>
+</tr>
+<tr>
+  <td>tile / chip / patch</td>
+  <td>切片 / 图块</td>
+</tr>
+<tr>
+  <td>land cover</td>
+  <td>地表覆盖</td>
+</tr>
+<tr>
+  <td>land use</td>
+  <td>土地利用</td>
+</tr>
+<tr>
+  <td>spectral signature</td>
+  <td>光谱特征</td>
+</tr>
+<tr>
+  <td>speckle noise</td>
+  <td>SAR 斑点噪声</td>
+</tr>
+<tr>
+  <td>cloud cover</td>
+  <td>云覆盖</td>
+</tr>
+<tr>
+  <td>atmospheric effect</td>
+  <td>大气影响</td>
+</tr>
+<tr>
+  <td>seasonal variation</td>
+  <td>季节变化</td>
+</tr>
+<tr>
+  <td>illumination variation</td>
+  <td>光照变化</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2.2 CV / 遥感解译高频英语</h2>
+<table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>scene classification</td>
+  <td>场景分类</td>
+</tr>
+<tr>
+  <td>object detection</td>
+  <td>目标检测</td>
+</tr>
+<tr>
+  <td>oriented object detection</td>
+  <td>旋转目标检测</td>
+</tr>
+<tr>
+  <td>horizontal bounding box (HBB)</td>
+  <td>水平框</td>
+</tr>
+<tr>
+  <td>oriented bounding box (OBB)</td>
+  <td>旋转框</td>
+</tr>
+<tr>
+  <td>semantic segmentation</td>
+  <td>语义分割</td>
+</tr>
+<tr>
+  <td>instance segmentation</td>
+  <td>实例分割</td>
+</tr>
+<tr>
+  <td>panoptic segmentation</td>
+  <td>全景分割</td>
+</tr>
+<tr>
+  <td>change detection</td>
+  <td>变化检测</td>
+</tr>
+<tr>
+  <td>referring segmentation</td>
+  <td>指代表达分割</td>
+</tr>
+<tr>
+  <td>visual grounding</td>
+  <td>视觉定位</td>
+</tr>
+<tr>
+  <td>image captioning</td>
+  <td>图像描述</td>
+</tr>
+<tr>
+  <td>visual question answering (VQA)</td>
+  <td>视觉问答</td>
+</tr>
+<tr>
+  <td>image-text retrieval</td>
+  <td>图文检索</td>
+</tr>
+<tr>
+  <td>small object</td>
+  <td>小目标</td>
+</tr>
+<tr>
+  <td>dense prediction</td>
+  <td>密集预测</td>
+</tr>
+<tr>
+  <td>class imbalance</td>
+  <td>类别不平衡</td>
+</tr>
+<tr>
+  <td>long-tail distribution</td>
+  <td>长尾分布</td>
+</tr>
+<tr>
+  <td>domain shift</td>
+  <td>域偏移</td>
+</tr>
+<tr>
+  <td>domain adaptation</td>
+  <td>域适应</td>
+</tr>
+<tr>
+  <td>domain generalization</td>
+  <td>域泛化</td>
+</tr>
+<tr>
+  <td>test-time adaptation (TTA)</td>
+  <td>测试时自适应</td>
+</tr>
+<tr>
+  <td>robustness</td>
+  <td>鲁棒性</td>
+</tr>
+<tr>
+  <td>corruption</td>
+  <td>退化/扰动</td>
+</tr>
+<tr>
+  <td>cross-domain</td>
+  <td>跨域</td>
+</tr>
+<tr>
+  <td>cross-sensor</td>
+  <td>跨传感器</td>
+</tr>
+<tr>
+  <td>multi-temporal</td>
+  <td>多时相</td>
+</tr>
+<tr>
+  <td>multi-modal</td>
+  <td>多模态</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2.3 深度学习与 Transformer 高频英语</h2>
+<table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>backbone</td>
+  <td>主干网络</td>
+</tr>
+<tr>
+  <td>neck</td>
+  <td>特征融合部分</td>
+</tr>
+<tr>
+  <td>prediction head</td>
+  <td>预测头</td>
+</tr>
+<tr>
+  <td>encoder</td>
+  <td>编码器</td>
+</tr>
+<tr>
+  <td>decoder</td>
+  <td>解码器</td>
+</tr>
+<tr>
+  <td>feature map</td>
+  <td>特征图</td>
+</tr>
+<tr>
+  <td>feature pyramid</td>
+  <td>特征金字塔</td>
+</tr>
+<tr>
+  <td>receptive field</td>
+  <td>感受野</td>
+</tr>
+<tr>
+  <td>stride</td>
+  <td>步长</td>
+</tr>
+<tr>
+  <td>dilation</td>
+  <td>空洞率</td>
+</tr>
+<tr>
+  <td>token</td>
+  <td>token / 表征单元</td>
+</tr>
+<tr>
+  <td>patch token</td>
+  <td>图像块 token</td>
+</tr>
+<tr>
+  <td>class token</td>
+  <td>类别 token</td>
+</tr>
+<tr>
+  <td>query</td>
+  <td>查询向量</td>
+</tr>
+<tr>
+  <td>key / value</td>
+  <td>键 / 值</td>
+</tr>
+<tr>
+  <td>self-attention</td>
+  <td>自注意力</td>
+</tr>
+<tr>
+  <td>cross-attention</td>
+  <td>交叉注意力</td>
+</tr>
+<tr>
+  <td>multi-head attention</td>
+  <td>多头注意力</td>
+</tr>
+<tr>
+  <td>positional embedding</td>
+  <td>位置编码</td>
+</tr>
+<tr>
+  <td>embedding</td>
+  <td>嵌入</td>
+</tr>
+<tr>
+  <td>normalization</td>
+  <td>归一化</td>
+</tr>
+<tr>
+  <td>residual connection</td>
+  <td>残差连接</td>
+</tr>
+<tr>
+  <td>feed-forward network (FFN)</td>
+  <td>前馈网络</td>
+</tr>
+<tr>
+  <td>pretraining</td>
+  <td>预训练</td>
+</tr>
+<tr>
+  <td>fine-tuning</td>
+  <td>微调</td>
+</tr>
+<tr>
+  <td>linear probing</td>
+  <td>线性探测</td>
+</tr>
+<tr>
+  <td>self-supervised learning</td>
+  <td>自监督学习</td>
+</tr>
+<tr>
+  <td>contrastive learning</td>
+  <td>对比学习</td>
+</tr>
+<tr>
+  <td>masked image modeling</td>
+  <td>掩码图像建模</td>
+</tr>
+<tr>
+  <td>distillation</td>
+  <td>蒸馏</td>
+</tr>
+<tr>
+  <td>parameter-efficient fine-tuning (PEFT)</td>
+  <td>参数高效微调</td>
+</tr>
+<tr>
+  <td>LoRA</td>
+  <td>低秩适配</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2.4 VLM / MLLM / Agent 高频英语</h2>
+<table>
+<thead>
+<tr>
+  <th>English</th>
+  <th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>vision-language model (VLM)</td>
+  <td>视觉语言模型</td>
+</tr>
+<tr>
+  <td>multimodal large language model (MLLM)</td>
+  <td>多模态大语言模型</td>
+</tr>
+<tr>
+  <td>image-text alignment</td>
+  <td>图文对齐</td>
+</tr>
+<tr>
+  <td>contrastive language-image pretraining</td>
+  <td>图文对比预训练</td>
+</tr>
+<tr>
+  <td>prompt</td>
+  <td>提示词</td>
+</tr>
+<tr>
+  <td>prompt engineering</td>
+  <td>提示工程</td>
+</tr>
+<tr>
+  <td>prompt tuning</td>
+  <td>提示微调</td>
+</tr>
+<tr>
+  <td>zero-shot</td>
+  <td>零样本</td>
+</tr>
+<tr>
+  <td>few-shot</td>
+  <td>少样本</td>
+</tr>
+<tr>
+  <td>open-vocabulary</td>
+  <td>开放词汇</td>
+</tr>
+<tr>
+  <td>open-set</td>
+  <td>开放集</td>
+</tr>
+<tr>
+  <td>grounding</td>
+  <td>视觉定位/落地</td>
+</tr>
+<tr>
+  <td>referring expression</td>
+  <td>指代表达</td>
+</tr>
+<tr>
+  <td>instruction tuning</td>
+  <td>指令微调</td>
+</tr>
+<tr>
+  <td>supervised fine-tuning (SFT)</td>
+  <td>监督微调</td>
+</tr>
+<tr>
+  <td>reinforcement learning (RL)</td>
+  <td>强化学习</td>
+</tr>
+<tr>
+  <td>reasoning</td>
+  <td>推理</td>
+</tr>
+<tr>
+  <td>chain-of-thought (CoT)</td>
+  <td>思维链</td>
+</tr>
+<tr>
+  <td>hallucination</td>
+  <td>幻觉</td>
+</tr>
+<tr>
+  <td>retrieval-augmented generation (RAG)</td>
+  <td>检索增强生成</td>
+</tr>
+<tr>
+  <td>agent</td>
+  <td>智能体</td>
+</tr>
+<tr>
+  <td>tool use</td>
+  <td>工具调用</td>
+</tr>
+<tr>
+  <td>tool calling</td>
+  <td>工具调用</td>
+</tr>
+<tr>
+  <td>planner</td>
+  <td>规划器</td>
+</tr>
+<tr>
+  <td>executor</td>
+  <td>执行器</td>
+</tr>
+<tr>
+  <td>memory</td>
+  <td>记忆模块</td>
+</tr>
+<tr>
+  <td>routing</td>
+  <td>路由</td>
+</tr>
+<tr>
+  <td>orchestration</td>
+  <td>编排</td>
+</tr>
+<tr>
+  <td>workflow</td>
+  <td>工作流</td>
+</tr>
+<tr>
+  <td>environment</td>
+  <td>环境</td>
+</tr>
+<tr>
+  <td>observation</td>
+  <td>观测</td>
+</tr>
+<tr>
+  <td>action</td>
+  <td>动作</td>
+</tr>
+<tr>
+  <td>reward</td>
+  <td>奖励</td>
+</tr>
+<tr>
+  <td>policy</td>
+  <td>策略</td>
+</tr>
+<tr>
+  <td>reinforcement fine-tuning</td>
+  <td>强化式微调</td>
+</tr>
+<tr>
+  <td>Model Context Protocol (MCP)</td>
+  <td>模型上下文协议</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2.5 论文中必须一眼看懂的表达</h2>
+<pre><code class="language-text">We propose ...
+我们提出……
+
+We formulate the problem as ...
+我们将该问题表述为……
+
+Unlike previous methods, ...
+与已有方法不同……
+
+To this end, ...
+为此……
+
+Specifically, ...
+具体而言……
+
+The main contribution is ...
+主要贡献是……
+
+We conduct extensive experiments on ...
+我们在……上进行了广泛实验。
+
+Our method consistently outperforms ...
+我们的方法持续优于……
+
+Ablation studies demonstrate that ...
+消融实验表明……
+
+The results suggest that ...
+结果说明……
+
+generalize to unseen categories
+泛化到未见类别
+
+without additional training / fine-tuning
+无需额外训练/微调
+
+under domain shifts
+在域偏移条件下
+
+at inference time
+在推理阶段
+
+in a training-free manner
+以无需训练的方式
+</code></pre>
+<hr />
+<h2>2.6 新生读英文论文的“三遍法”</h2>
+<h3>第一遍：10–20 分钟</h3>
+<p>只看：</p>
+<ol>
+<li>Title</li>
+<li>Abstract</li>
+<li>Introduction 最后一段贡献</li>
+<li>Figure 1 / Method Overview</li>
+<li>Main Results Table</li>
+<li>Conclusion</li>
+</ol>
+<p>回答：</p>
+<pre><code class="language-text">作者解决什么问题？
+为什么以前的方法不行？
+作者提出了什么？
+最核心实验结果是什么？
+</code></pre>
+<h3>第二遍：30–90 分钟</h3>
+<p>重点看：</p>
+<ul>
+<li>Method；</li>
+<li>模型输入输出；</li>
+<li>loss；</li>
+<li>training / inference protocol；</li>
+<li>dataset；</li>
+<li>metrics；</li>
+<li>ablation。</li>
+</ul>
+<h3>第三遍：论文 + 代码一起看</h3>
+<p>要求定位：</p>
+<pre><code class="language-text">论文中的 module → 代码哪个 class？
+公式 → 哪个 function？
+loss → 哪个文件？
+dataset → 哪个 config？
+evaluation → 哪个 script？
+</code></pre>
+<blockquote>
+<p><strong>没有完成第三遍，通常不能算真正读懂一篇算法论文。</strong></p>
+</blockquote>
+<hr />
+<h1>3. 传统 CV：必须先会，但不必沉迷</h1>
+<p>在开始深度学习以前，至少理解并能用 OpenCV 实现：</p>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>RGB / HSV / Gray；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>histogram；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>convolution；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Gaussian filter；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>median filter；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Sobel；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Canny；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>thresholding；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>morphology：erosion / dilation / opening / closing；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>connected components；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>contour；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Hough transform；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>SIFT / ORB；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>feature matching；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>RANSAC；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>homography；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>image registration；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>optical flow；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Fourier transform。</li>
+</ul>
+<h3>练习</h3>
+<ol>
+<li>对无人机影像进行边缘提取；</li>
+<li>用 SIFT/ORB + RANSAC 配准两张航拍图；</li>
+<li>利用形态学清理二值建筑物 mask；</li>
+<li>对变化检测双时相影像尝试传统差分方法。</li>
+</ol>
+<p>这些内容的意义不是为了以后继续用传统算法发论文，而是为了理解：</p>
+<blockquote>
+<p><strong>图像为什么会变、特征是什么、噪声来自哪里、几何变换怎么影响模型。</strong></p>
+</blockquote>
+<hr />
+<h1>4. 必会模型清单：每个模型都配 Bilibili 学习资源</h1>
+<blockquote>
+<p>建议顺序：<strong>ResNet → U-Net → ViT → Swin → YOLO → DETR → Mask2Former → DINOv3 → CLIP → SAM → Grounding DINO → BLIP-2 → LLaVA → Qwen-VL</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+  <th>等级</th>
+  <th>模型</th>
+  <th>必须掌握什么</th>
+  <th>官方/主流代码</th>
+  <th>Bilibili 解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>S</td>
+  <td>ResNet</td>
+  <td>residual / shortcut / stage / backbone</td>
+  <td>https://github.com/pytorch/vision</td>
+  <td>https://www.bilibili.com/video/BV1P3411y7nn/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>U-Net</td>
+  <td>encoder-decoder / skip connection / segmentation</td>
+  <td>https://github.com/milesial/Pytorch-UNet</td>
+  <td>https://www.bilibili.com/video/BV1RY4y1m7vi/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>ViT</td>
+  <td>patch embedding / MHSA / CLS token</td>
+  <td>https://github.com/google-research/vision_transformer</td>
+  <td>https://www.bilibili.com/video/BV15P4y137jb/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>Swin Transformer</td>
+  <td>window attention / shifted window / hierarchical feature</td>
+  <td>https://github.com/microsoft/Swin-Transformer</td>
+  <td>https://www.bilibili.com/video/BV13L4y1475U/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>YOLO</td>
+  <td>one-stage detection / label assignment / NMS / detection pipeline</td>
+  <td>https://github.com/ultralytics/ultralytics</td>
+  <td>https://www.bilibili.com/video/BV1RRcUeWEPe/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>DETR</td>
+  <td>object query / Hungarian matching / set prediction</td>
+  <td>https://github.com/facebookresearch/detr</td>
+  <td>https://www.bilibili.com/video/BV1T6421F7tR/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>Mask2Former</td>
+  <td>mask classification / masked attention / universal segmentation</td>
+  <td>https://github.com/facebookresearch/Mask2Former</td>
+  <td>https://www.bilibili.com/video/BV1EA22YnEY1/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>CLIP</td>
+  <td>contrastive image-text alignment / zero-shot classification</td>
+  <td>https://github.com/openai/CLIP</td>
+  <td>https://www.bilibili.com/video/BV1NM411a7CP/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>SAM / SAM2</td>
+  <td>promptable segmentation / image encoder / prompt encoder / mask decoder</td>
+  <td>https://github.com/facebookresearch/segment-anything</td>
+  <td>https://www.bilibili.com/video/BV1Cv4y1E7ho/</td>
+</tr>
+<tr>
+  <td>S</td>
+  <td>Grounding DINO</td>
+  <td>text-conditioned open-set detection / grounding</td>
+  <td>https://github.com/IDEA-Research/GroundingDINO</td>
+  <td>https://www.bilibili.com/video/BV1rjgBzHEBW/</td>
+</tr>
+<tr>
+  <td>A</td>
+  <td>DINOv2 / DINOv3</td>
+  <td>self-supervised visual foundation features / dense features</td>
+  <td>https://github.com/facebookresearch/dinov3</td>
+  <td>https://www.bilibili.com/video/BV1s7JCzbETY/</td>
+</tr>
+<tr>
+  <td>A</td>
+  <td>BLIP-2</td>
+  <td>frozen vision encoder + Q-Former + LLM</td>
+  <td>https://github.com/salesforce/LAVIS</td>
+  <td>https://www.bilibili.com/video/BV18u4y137ZV/</td>
+</tr>
+<tr>
+  <td>A</td>
+  <td>LLaVA</td>
+  <td>vision encoder + projector + LLM / visual instruction tuning</td>
+  <td>https://github.com/haotian-liu/LLaVA</td>
+  <td>https://www.bilibili.com/video/BV1nw4m1S7nZ/</td>
+</tr>
+<tr>
+  <td>A</td>
+  <td>Qwen2.5-VL</td>
+  <td>dynamic vision input / MRoPE / grounding / video</td>
+  <td>https://github.com/QwenLM/Qwen2.5-VL</td>
+  <td>https://www.bilibili.com/video/BV1wnbGzbEdy/</td>
+</tr>
+<tr>
+  <td>A</td>
+  <td>Qwen3-VL</td>
+  <td>multimodal reasoning / spatial grounding / visual agent / tool use</td>
+  <td>https://github.com/QwenLM/Qwen3-VL</td>
+  <td>https://www.bilibili.com/video/BV1Vx421m7r7?p=3</td>
+</tr>
+</tbody>
+</table>
+<h3>学模型的最低标准</h3>
+<p>不要停留在“知道名字”。</p>
+<p>每个 S 级模型至少做到：</p>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能手绘结构；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能说清楚输入输出；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能解释核心创新；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能读懂 forward；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能跑官方 inference；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能替换自己的数据；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能解释 loss；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能解释主要评价指标；</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>能分析至少一个失败案例。</li>
+</ul>
+<hr />
+<h1>5. 必读论文：通用 CV / Foundation Model</h1>
+<blockquote>
+<p>以下论文均有公开代码或成熟公开实现。</p>
+</blockquote>
+<hr />
+<h2>5.1 Deep Residual Learning for Image Recognition — ResNet</h2>
+<ul>
+<li><strong>Venue</strong>：CVPR 2016</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/1512.03385</li>
+<li><strong>Code/Implementation</strong>：https://github.com/pytorch/vision</li>
+<li><strong>必须学会</strong>：<ul>
+<li>residual learning；</li>
+<li>shortcut connection；</li>
+<li>degradation problem；</li>
+<li>ResNet-18/50 的区别；</li>
+<li>为什么 ResNet 长期作为遥感 backbone。</li>
+</ul>
+</li>
+<li><strong>实践</strong>：用 ResNet-18 在 EuroSAT / NWPU-RESISC45 做分类。</li>
+</ul>
+<hr />
+<h2>5.2 U-Net: Convolutional Networks for Biomedical Image Segmentation</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/1505.04597</li>
+<li><strong>Code</strong>：https://github.com/milesial/Pytorch-UNet</li>
+<li><strong>必须学会</strong>：<ul>
+<li>encoder-decoder；</li>
+<li>skip connection；</li>
+<li>dense prediction；</li>
+<li>segmentation loss。</li>
+</ul>
+</li>
+<li><strong>实践</strong>：在 LoveDA / Potsdam 做最基础语义分割。</li>
+</ul>
+<hr />
+<h2>5.3 An Image is Worth 16×16 Words — Vision Transformer</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2010.11929</li>
+<li><strong>Official Code</strong>：https://github.com/google-research/vision_transformer</li>
+<li><strong>必须学会</strong>：<ul>
+<li>patch embedding；</li>
+<li>positional embedding；</li>
+<li>self-attention；</li>
+<li>class token；</li>
+<li>Transformer 为什么能替代 CNN backbone。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>5.4 Swin Transformer</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2103.14030</li>
+<li><strong>Official Code</strong>：https://github.com/microsoft/Swin-Transformer</li>
+<li><strong>必须学会</strong>：<ul>
+<li>local window；</li>
+<li>shifted window；</li>
+<li>hierarchical representation；</li>
+<li>为什么 Swin 特别适合检测/分割。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>5.5 End-to-End Object Detection with Transformers — DETR</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2005.12872</li>
+<li><strong>Official Code</strong>：https://github.com/facebookresearch/detr</li>
+<li><strong>必须学会</strong>：<ul>
+<li>object query；</li>
+<li>bipartite/Hungarian matching；</li>
+<li>set prediction；</li>
+<li>为什么不需要传统 anchor + NMS 流程。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>5.6 Masked-attention Mask Transformer for Universal Image Segmentation — Mask2Former</h2>
+<ul>
+<li><strong>Venue</strong>：CVPR 2022</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2112.01527</li>
+<li><strong>Official Code</strong>：https://github.com/facebookresearch/Mask2Former</li>
+<li><strong>必须学会</strong>：<ul>
+<li>mask classification；</li>
+<li>masked attention；</li>
+<li>semantic / instance / panoptic segmentation 统一思路。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>5.7 DINOv3</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2508.10104</li>
+<li><strong>Official Code</strong>：https://github.com/facebookresearch/dinov3</li>
+<li><strong>必须学会</strong>：<ul>
+<li>self-supervised visual representation；</li>
+<li>frozen backbone；</li>
+<li>dense feature；</li>
+<li>linear probing；</li>
+<li>satellite-pretrained backbone 的意义。</li>
+</ul>
+</li>
+<li><strong>特别注意</strong>：DINOv3 官方同时提供面向卫星数据训练的模型，是 2025–2026 视觉基础模型研究中值得重点跟踪的方向。</li>
+</ul>
+<hr />
+<h1>6. 必读论文：遥感经典任务</h1>
+<hr />
+<h2>6.1 Oriented R-CNN for Object Detection</h2>
+<ul>
+<li><strong>Venue</strong>：ICCV 2021</li>
+<li><strong>Paper</strong>：https://openaccess.thecvf.com/content/ICCV2021/html/Xie_Oriented_R-CNN_for_Object_Detection_ICCV_2021_paper.html</li>
+<li><strong>Code</strong>：https://github.com/jbwang1997/OBBDetection</li>
+<li><strong>重点</strong>：<ul>
+<li>遥感目标为什么经常需要 OBB；</li>
+<li>oriented proposal；</li>
+<li>angle representation；</li>
+<li>DOTA protocol。</li>
+</ul>
+</li>
+<li><strong>实践</strong>：DOTA / HRSC2016。</li>
+</ul>
+<hr />
+<h2>6.2 Remote Sensing Image Change Detection with Transformers — BIT</h2>
+<ul>
+<li><strong>Venue</strong>：IEEE TGRS</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2103.00208</li>
+<li><strong>Official Code</strong>：https://github.com/justchenhao/BIT_CD</li>
+<li><strong>重点</strong>：<ul>
+<li>bi-temporal image；</li>
+<li>semantic token；</li>
+<li>temporal interaction；</li>
+<li>change map。</li>
+</ul>
+</li>
+<li><strong>实践</strong>：LEVIR-CD。</li>
+</ul>
+<hr />
+<h2>6.3 ChangeFormer</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2201.01293</li>
+<li><strong>Official Code</strong>：https://github.com/wgcban/ChangeFormer</li>
+<li><strong>重点</strong>：<ul>
+<li>Siamese Transformer；</li>
+<li>multi-scale feature difference；</li>
+<li>change detection decoder。</li>
+</ul>
+</li>
+<li><strong>实践</strong>：LEVIR-CD / DSIFN-CD。</li>
+</ul>
+<hr />
+<h1>7. 必读论文：遥感基础模型 / 自监督 / 多传感器</h1>
+<hr />
+<h2>7.1 SatMAE</h2>
+<ul>
+<li><strong>Venue</strong>：NeurIPS 2022</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2207.08051</li>
+<li><strong>Official Code</strong>：https://github.com/sustainlab-group/SatMAE</li>
+<li><strong>重点</strong>：<ul>
+<li>masked autoencoder；</li>
+<li>temporal satellite imagery；</li>
+<li>multispectral band grouping；</li>
+<li>遥感预训练与自然图像预训练的差异。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>7.2 Scale-MAE</h2>
+<ul>
+<li><strong>Venue</strong>：ICCV 2023</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2212.14532</li>
+<li><strong>Code</strong>：https://github.com/bair-climate-initiative/scale-mae</li>
+<li><strong>重点</strong>：<ul>
+<li>geospatial scale；</li>
+<li>GSD；</li>
+<li>scale-aware representation。</li>
+</ul>
+</li>
+<li><strong>理解问题</strong>：<ul>
+<li>为什么同一“building”在不同 GSD 下像素尺度完全不同？</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>7.3 CROMA</h2>
+<ul>
+<li><strong>Venue</strong>：NeurIPS 2023</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2311.00566</li>
+<li><strong>Official Code</strong>：https://github.com/antofuller/CROMA</li>
+<li><strong>重点</strong>：<ul>
+<li>SAR + optical；</li>
+<li>contrastive learning；</li>
+<li>masked autoencoder；</li>
+<li>cross-modal representation；</li>
+<li>multi-sensor foundation model。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>7.4 DeCUR</h2>
+<ul>
+<li><strong>Venue</strong>：ECCV 2024 Oral</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2309.05300</li>
+<li><strong>Official Code</strong>：https://github.com/zhu-xlab/DeCUR</li>
+<li><strong>重点</strong>：<ul>
+<li>common representation；</li>
+<li>modality-unique representation；</li>
+<li>SAR-optical self-supervised learning；</li>
+<li>modality missing。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>7.5 SAMRS</h2>
+<ul>
+<li><strong>Venue</strong>：NeurIPS 2023 Datasets &amp; Benchmarks</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2305.02034</li>
+<li><strong>Official Code</strong>：https://github.com/ViTAE-Transformer/SAMRS</li>
+<li><strong>重点</strong>：<ul>
+<li>SAM 如何用于遥感数据自动构建；</li>
+<li>data-centric AI；</li>
+<li>large-scale remote sensing segmentation dataset；</li>
+<li>pseudo-label / automatic annotation pipeline。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1>8. 必读论文：CLIP / 开放词汇 / 遥感 VLM</h1>
+<hr />
+<h2>8.1 Learning Transferable Visual Models From Natural Language Supervision — CLIP</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2103.00020</li>
+<li><strong>Official Code</strong>：https://github.com/openai/CLIP</li>
+<li><strong>重点</strong>：<ul>
+<li>image encoder；</li>
+<li>text encoder；</li>
+<li>contrastive loss；</li>
+<li>zero-shot classifier；</li>
+<li>prompt template；</li>
+<li>similarity logits。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果 CLIP 没读懂，不建议直接做 RemoteCLIP / open-vocabulary segmentation。</p>
+</blockquote>
+<hr />
+<h2>8.2 Grounding DINO</h2>
+<ul>
+<li><strong>Venue</strong>：ECCV 2024</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2303.05499</li>
+<li><strong>Official Code</strong>：https://github.com/IDEA-Research/GroundingDINO</li>
+<li><strong>重点</strong>：<ul>
+<li>text-conditioned detector；</li>
+<li>phrase grounding；</li>
+<li>open-set detection；</li>
+<li>detector 与语言模型如何融合。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>8.3 Segment Anything</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2304.02643</li>
+<li><strong>Official Code</strong>：https://github.com/facebookresearch/segment-anything</li>
+<li><strong>重点</strong>：<ul>
+<li>promptable segmentation；</li>
+<li>prompt encoder；</li>
+<li>mask decoder；</li>
+<li>data engine；</li>
+<li>zero-shot transfer。</li>
+</ul>
+</li>
+<li><strong>扩展</strong>：SAM2<br />
+https://github.com/facebookresearch/segment-anything-2</li>
+</ul>
+<hr />
+<h2>8.4 RemoteCLIP</h2>
+<ul>
+<li><strong>Venue</strong>：IEEE TGRS 2024</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2306.11029</li>
+<li><strong>Official Code</strong>：https://github.com/ChenDelong1999/RemoteCLIP</li>
+<li><strong>重点</strong>：<ul>
+<li>domain-specific CLIP；</li>
+<li>遥感图文对构建；</li>
+<li>zero-shot classification；</li>
+<li>retrieval；</li>
+<li>prompt sensitivity。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>8.5 RS5M and GeoRSCLIP</h2>
+<ul>
+<li><strong>Venue</strong>：IEEE TGRS 2024</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2306.11300</li>
+<li><strong>Official Code/Data</strong>：https://github.com/om-ai-lab/RS5M</li>
+<li><strong>重点</strong>：<ul>
+<li>5M image-text dataset；</li>
+<li>domain VLM；</li>
+<li>PEFT；</li>
+<li>image-text retrieval / zero-shot classification / localization。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>8.6 SegEarth-OV</h2>
+<ul>
+<li><strong>Venue</strong>：CVPR 2025 Oral</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2410.01768</li>
+<li><strong>Official Code</strong>：https://github.com/likyoo/SegEarth-OV</li>
+<li><strong>重点</strong>：<ul>
+<li>training-free open-vocabulary semantic segmentation；</li>
+<li>CLIP patch token；</li>
+<li>spatial upsampling；</li>
+<li>global bias；</li>
+<li>remote sensing OVSS protocol。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>对想做 <strong>开放词汇遥感语义分割</strong> 的同学，这是必须精读并跑通的代码库。</p>
+</blockquote>
+<hr />
+<h1>9. 必读论文：通用 MLLM → 遥感 MLLM</h1>
+<hr />
+<h2>9.1 BLIP-2</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2301.12597</li>
+<li><strong>Official Code</strong>：https://github.com/salesforce/LAVIS</li>
+<li><strong>重点</strong>：<ul>
+<li>frozen image encoder；</li>
+<li>frozen LLM；</li>
+<li>Q-Former；</li>
+<li>bootstrapping。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>9.2 Visual Instruction Tuning — LLaVA</h2>
+<ul>
+<li><strong>Venue</strong>：NeurIPS 2023 Oral</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2304.08485</li>
+<li><strong>Official Code</strong>：https://github.com/haotian-liu/LLaVA</li>
+<li><strong>重点</strong>：<ul>
+<li>visual instruction tuning；</li>
+<li>vision encoder；</li>
+<li>projector；</li>
+<li>LLM；</li>
+<li>instruction dataset；</li>
+<li>两阶段训练。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>9.3 RSGPT</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2307.15266</li>
+<li><strong>Code</strong>：https://github.com/Lavender105/RSGPT</li>
+<li><strong>重点</strong>：<ul>
+<li>RS caption；</li>
+<li>RS VQA；</li>
+<li>high-quality instruction data；</li>
+<li>remote sensing VLM benchmark。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>9.4 GeoChat</h2>
+<ul>
+<li><strong>Venue</strong>：CVPR 2024</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2311.15826</li>
+<li><strong>Official Code</strong>：https://github.com/mbzuai-oryx/GeoChat</li>
+<li><strong>重点</strong>：<ul>
+<li>high-resolution RS MLLM；</li>
+<li>region-level conversation；</li>
+<li>visual grounding；</li>
+<li>referring object detection；</li>
+<li>LLaVA-based RS specialization。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>9.5 EarthGPT</h2>
+<ul>
+<li><strong>Venue</strong>：IEEE TGRS 2024</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2401.16822</li>
+<li><strong>Official Code</strong>：https://github.com/wivizhang/EarthGPT</li>
+<li><strong>重点</strong>：<ul>
+<li>optical / SAR / infrared unified understanding；</li>
+<li>multi-sensor；</li>
+<li>multi-task instruction tuning；</li>
+<li>MMRS-1M。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>9.6 LHRS-Bot</h2>
+<ul>
+<li><strong>Venue</strong>：ECCV 2024</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2402.02544</li>
+<li><strong>Official Code</strong>：https://github.com/NJU-LHRS/LHRS-Bot</li>
+<li><strong>重点</strong>：<ul>
+<li>volunteered geographic information (VGI)；</li>
+<li>RS instruction dataset；</li>
+<li>multi-level vision-language alignment；</li>
+<li>remote sensing reasoning。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>9.7 RemoteSAM</h2>
+<ul>
+<li><strong>Venue</strong>：ACM Multimedia 2025 Oral</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2505.18022</li>
+<li><strong>Official Code</strong>：https://github.com/1e12Leon/RemoteSAM</li>
+<li><strong>重点</strong>：<ul>
+<li>unified EO perception；</li>
+<li>referring expression segmentation；</li>
+<li>image-text-mask data engine；</li>
+<li>classification / detection / segmentation / grounding unified interface。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1>10. 必读论文：Reasoning / Agent</h1>
+<hr />
+<h2>10.1 ReAct: Synergizing Reasoning and Acting in Language Models</h2>
+<ul>
+<li><strong>Venue</strong>：ICLR 2023</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2210.03629</li>
+<li><strong>Official Code</strong>：https://github.com/ysymyth/ReAct</li>
+<li><strong>重点</strong>：<ul>
+<li>Thought → Action → Observation；</li>
+<li>reasoning 与 acting 的结合；</li>
+<li>tool-use agent 的基本范式。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>想研究 Agent，ReAct 是概念地基。</p>
+</blockquote>
+<hr />
+<h2>10.2 RemoteReasoner</h2>
+<ul>
+<li><strong>Venue</strong>：AAAI 2026</li>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2507.19280</li>
+<li><strong>Official Code</strong>：https://github.com/1e12Leon/RemoteReasoner</li>
+<li><strong>重点</strong>：<ul>
+<li>geospatial reasoning；</li>
+<li>MLLM；</li>
+<li>reinforcement learning；</li>
+<li>object / region / pixel multi-granularity reasoning；</li>
+<li>unseen task generalization。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>10.3 RemoteAgent</h2>
+<ul>
+<li><strong>Paper</strong>：https://arxiv.org/abs/2604.07765</li>
+<li><strong>Official Code</strong>：https://github.com/1e12Leon/RemoteAgent</li>
+<li><strong>重点</strong>：<ul>
+<li>vague human intent；</li>
+<li>task routing；</li>
+<li>intrinsic vs. extrinsic capability；</li>
+<li>dense prediction tool delegation；</li>
+<li>reinforcement fine-tuning；</li>
+<li>Model Context Protocol；</li>
+<li>Agentic Earth Observation。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这是理解“未来遥感系统为什么不再只是一个单模型”的关键论文之一。</p>
+</blockquote>
+<hr />
+<h1>11. 推荐了解的工程型 Agent 项目</h1>
+<h2>GeoAgent</h2>
+<ul>
+<li><strong>Code</strong>：https://github.com/opengeos/GeoAgent</li>
+<li><strong>定位</strong>：面向 geospatial Python / QGIS / live map / Earthdata 的多模态 Agent 工具层。</li>
+<li><strong>建议学习</strong>：<ul>
+<li>tool metadata；</li>
+<li>agent interface；</li>
+<li>GIS 工具调用；</li>
+<li>confirmation hook；</li>
+<li>geospatial workflow orchestration。</li>
+</ul>
+</li>
+</ul>
+<p>它适合作为工程实践参考，但不要把“会调用 API”误认为“完成 Agent 科研”。</p>
+<hr />
+<h1>12. 2026 年值得重点关注的遥感 AI 研究方向</h1>
+<p>按“新生未来 2–3 年科研价值”建议关注：</p>
+<table>
+<thead>
+<tr>
+  <th>方向</th>
+  <th style="text-align:right">推荐指数</th>
+  <th>研究问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>遥感基础模型 / Self-Supervised Foundation Model</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>大规模无标注、跨传感器、跨 GSD、跨地域</td>
+</tr>
+<tr>
+  <td>Open-Vocabulary Remote Sensing</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>unseen class、prompt、zero-shot、dense prediction</td>
+</tr>
+<tr>
+  <td>Training-Free / Parameter-Free Adaptation</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>冻结基础模型如何适应遥感域</td>
+</tr>
+<tr>
+  <td>Remote Sensing VLM</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>image-text alignment、retrieval、zero-shot</td>
+</tr>
+<tr>
+  <td>Remote Sensing MLLM</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>VQA、grounding、caption、reasoning</td>
+</tr>
+<tr>
+  <td>Multi-sensor MLLM</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>optical + SAR + IR + multispectral</td>
+</tr>
+<tr>
+  <td>Spatio-temporal VLM / MLLM</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>多时相理解、变化解释、事件推理</td>
+</tr>
+<tr>
+  <td>Referring / Grounded MLLM</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>文本 → box/mask/region</td>
+</tr>
+<tr>
+  <td>Agentic Earth Observation</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>intent → planning → tool routing → result</td>
+</tr>
+<tr>
+  <td>RL for Geospatial Reasoning</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>reasoning autonomy、task transformation</td>
+</tr>
+<tr>
+  <td>MLLM + 专家视觉工具</td>
+  <td style="text-align:right">★★★★★</td>
+  <td>MLLM 负责理解，检测/分割模型负责精确空间预测</td>
+</tr>
+<tr>
+  <td>Geospatial RAG</td>
+  <td style="text-align:right">★★★★☆</td>
+  <td>遥感图像 + GIS/地图/知识库联合检索</td>
+</tr>
+<tr>
+  <td>Domain Generalization / TTA</td>
+  <td style="text-align:right">★★★★☆</td>
+  <td>跨城市、跨传感器、跨季节</td>
+</tr>
+<tr>
+  <td>Robust Remote Sensing</td>
+  <td style="text-align:right">★★★★☆</td>
+  <td>云、雾、噪声、压缩、低分辨率</td>
+</tr>
+<tr>
+  <td>Efficient / Edge EO Foundation Models</td>
+  <td style="text-align:right">★★★★☆</td>
+  <td>无人机、边缘设备、低显存部署</td>
+</tr>
+<tr>
+  <td>Automatic Dataset Construction</td>
+  <td style="text-align:right">★★★★☆</td>
+  <td>SAM/VLM/MLLM 自动标注与数据闭环</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>13. 数据集：至少知道这些名字</h1>
+<h2>场景分类</h2>
+<ul>
+<li>EuroSAT</li>
+<li>NWPU-RESISC45</li>
+<li>AID</li>
+<li>Million-AID</li>
+</ul>
+<h2>目标检测</h2>
+<ul>
+<li>DOTA</li>
+<li>DIOR</li>
+<li>HRSC2016</li>
+<li>FAIR1M</li>
+<li>xView</li>
+</ul>
+<h2>语义分割</h2>
+<ul>
+<li>LoveDA</li>
+<li>Potsdam</li>
+<li>Vaihingen</li>
+<li>OpenEarthMap</li>
+<li>iSAID</li>
+<li>UAVid</li>
+<li>DeepGlobe</li>
+<li>SpaceNet</li>
+</ul>
+<h2>变化检测</h2>
+<ul>
+<li>LEVIR-CD</li>
+<li>WHU-CD</li>
+<li>DSIFN-CD</li>
+<li>S2Looking</li>
+</ul>
+<h2>图文 / VLM / MLLM</h2>
+<ul>
+<li>RSICD</li>
+<li>RSITMD</li>
+<li>RS5M</li>
+<li>RSICap</li>
+<li>RSIEval</li>
+<li>VRSBench</li>
+<li>LHRS-Align</li>
+<li>LHRS-Instruct</li>
+<li>MMRS-1M</li>
+</ul>
+<hr />
+<h1>14. 指标必须真正理解</h1>
+<h2>分类</h2>
+<pre><code class="language-text">Accuracy
+Precision
+Recall
+F1-score
+Macro-F1
+</code></pre>
+<h2>检测</h2>
+<pre><code class="language-text">IoU
+AP
+mAP
+AP50
+AP75
+Precision / Recall
+</code></pre>
+<h2>分割</h2>
+<pre><code class="language-text">Pixel Accuracy
+IoU
+mIoU
+mAcc
+Dice
+F1
+</code></pre>
+<h2>变化检测</h2>
+<pre><code class="language-text">Precision
+Recall
+F1
+IoU
+OA
+Kappa
+</code></pre>
+<h2>图文检索</h2>
+<pre><code class="language-text">Recall@1
+Recall@5
+Recall@10
+mR
+</code></pre>
+<h2>VQA / MLLM</h2>
+<pre><code class="language-text">Exact Match
+Accuracy
+LLM-based scoring
+Grounding accuracy
+IoU
+task-specific benchmark score
+</code></pre>
+<blockquote>
+<p><strong>任何实验结果都必须先确认 protocol、split、class mapping、resolution、checkpoint、pretraining data 是否一致，再谈 SOTA。</strong></p>
+</blockquote>
+<hr />
+<h1>15. 20 周学习计划：适合一个学期执行</h1>
+<h2>Week 1 — Linux / Git / Python</h2>
+<p>完成：</p>
+<ul>
+<li>Linux；</li>
+<li>Git；</li>
+<li>Conda；</li>
+<li>PyTorch 环境；</li>
+<li>GPU 使用；</li>
+<li>README 阅读。</li>
+</ul>
+<p><strong>产出</strong>：自己从 GitHub clone 一个 repo 并成功运行。</p>
+<hr />
+<h2>Week 2 — OpenCV + 遥感基础</h2>
+<p>学习：</p>
+<ul>
+<li>image / pixel / band；</li>
+<li>CRS / GSD；</li>
+<li>multispectral / SAR；</li>
+<li>filter / edge / morphology；</li>
+<li>registration。</li>
+</ul>
+<p><strong>产出</strong>：双时相影像配准小实验。</p>
+<hr />
+<h2>Week 3 — ResNet</h2>
+<ul>
+<li>精读 ResNet；</li>
+<li>阅读 torchvision；</li>
+<li>EuroSAT 分类。</li>
+</ul>
+<p><strong>产出</strong>：训练日志 + confusion matrix + 1 页论文笔记。</p>
+<hr />
+<h2>Week 4 — U-Net</h2>
+<ul>
+<li>精读 U-Net；</li>
+<li>LoveDA/Potsdam 二选一；</li>
+<li>自己写 mIoU。</li>
+</ul>
+<p><strong>产出</strong>：baseline segmentation repo。</p>
+<hr />
+<h2>Week 5 — ViT + Swin</h2>
+<ul>
+<li>ViT 结构；</li>
+<li>self-attention；</li>
+<li>Swin window。</li>
+</ul>
+<p><strong>产出</strong>：CNN vs Transformer 对比笔记。</p>
+<hr />
+<h2>Week 6 — YOLO + DETR</h2>
+<p>理解：</p>
+<pre><code class="language-text">anchor-based / anchor-free
+one-stage / two-stage
+NMS
+object query
+Hungarian matching
+</code></pre>
+<p><strong>产出</strong>：在一个小型遥感检测数据集训练 detector。</p>
+<hr />
+<h2>Week 7 — Mask2Former</h2>
+<p>目标：</p>
+<ul>
+<li>搞清楚 mask classification；</li>
+<li>搞清楚 semantic/instance/panoptic 的联系。</li>
+</ul>
+<p><strong>产出</strong>：方法结构图 + inference demo。</p>
+<hr />
+<h2>Week 8 — 遥感旋转检测</h2>
+<p>精读：</p>
+<ul>
+<li>Oriented R-CNN；</li>
+<li>DOTA protocol。</li>
+</ul>
+<p><strong>产出</strong>：HBB vs OBB 对比。</p>
+<hr />
+<h2>Week 9 — 变化检测</h2>
+<p>精读：</p>
+<ul>
+<li>BIT；</li>
+<li>ChangeFormer。</li>
+</ul>
+<p><strong>产出</strong>：LEVIR-CD baseline。</p>
+<hr />
+<h2>Week 10 — 遥感基础模型</h2>
+<p>精读：</p>
+<ul>
+<li>SatMAE；</li>
+<li>Scale-MAE；</li>
+<li>CROMA。</li>
+</ul>
+<p><strong>产出</strong>：写一份“自然图像预训练为什么不能完全替代遥感预训练”的 2 页报告。</p>
+<hr />
+<h2>Week 11 — DINOv3</h2>
+<p>理解：</p>
+<ul>
+<li>self-supervised feature；</li>
+<li>frozen backbone；</li>
+<li>linear probing；</li>
+<li>dense feature。</li>
+</ul>
+<p><strong>产出</strong>：使用冻结特征完成一个小分类/分割实验。</p>
+<hr />
+<h2>Week 12 — CLIP + RemoteCLIP</h2>
+<p>目标：</p>
+<ul>
+<li>CLIP zero-shot classification；</li>
+<li>prompt template；</li>
+<li>RemoteCLIP inference。</li>
+</ul>
+<p><strong>产出</strong>：同一遥感数据集比较 CLIP 与 RemoteCLIP。</p>
+<hr />
+<h2>Week 13 — SAM + Grounding DINO</h2>
+<p>完成：</p>
+<pre><code class="language-text">text → Grounding DINO box
+box → SAM mask
+</code></pre>
+<p><strong>产出</strong>：一个自动目标检测+分割 demo。</p>
+<hr />
+<h2>Week 14 — SegEarth-OV</h2>
+<p>目标：</p>
+<ul>
+<li>跑通 open-vocabulary semantic segmentation；</li>
+<li>理解 CLIP dense feature；</li>
+<li>理解 training-free protocol。</li>
+</ul>
+<p><strong>产出</strong>：至少在一个遥感 segmentation dataset 上完成 inference/evaluation。</p>
+<hr />
+<h2>Week 15 — BLIP-2 + LLaVA</h2>
+<p>目标：</p>
+<ul>
+<li>理解视觉 encoder 与 LLM 如何连接；</li>
+<li>instruction tuning。</li>
+</ul>
+<p><strong>产出</strong>：对一张遥感图片完成 caption / VQA demo。</p>
+<hr />
+<h2>Week 16 — RSGPT / GeoChat</h2>
+<p>目标：</p>
+<ul>
+<li>跑通至少一个遥感 MLLM；</li>
+<li>分析 hallucination；</li>
+<li>分析 grounding。</li>
+</ul>
+<p><strong>产出</strong>：20 个问题的人工评测表。</p>
+<hr />
+<h2>Week 17 — EarthGPT / LHRS-Bot</h2>
+<p>重点：</p>
+<ul>
+<li>multi-sensor；</li>
+<li>VGI；</li>
+<li>RS-specific instruction tuning。</li>
+</ul>
+<p><strong>产出</strong>：整理“通用 MLLM vs 遥感 MLLM”对比表。</p>
+<hr />
+<h2>Week 18 — Qwen3-VL</h2>
+<p>重点：</p>
+<ul>
+<li>visual reasoning；</li>
+<li>grounding；</li>
+<li>tool use；</li>
+<li>agent capability。</li>
+</ul>
+<p><strong>产出</strong>：尝试让 Qwen3-VL 对遥感图像输出结构化目标/区域信息。</p>
+<hr />
+<h2>Week 19 — ReAct / RemoteReasoner</h2>
+<p>目标：</p>
+<ul>
+<li>理解 agent loop；</li>
+<li>reasoning；</li>
+<li>RL-based geospatial reasoning。</li>
+</ul>
+<p><strong>产出</strong>：实现一个最简：</p>
+<pre><code class="language-text">Question
+→ Thought
+→ Tool Selection
+→ Tool Result
+→ Answer
+</code></pre>
+<hr />
+<h2>Week 20 — RemoteAgent + 小型科研 Proposal</h2>
+<p>阅读 RemoteAgent。</p>
+<p>最终完成一份 3–5 页 proposal：</p>
+<pre><code class="language-text">1. Background
+2. Problem
+3. Existing Methods
+4. Limitation
+5. Proposed Idea
+6. Dataset
+7. Baseline
+8. Evaluation
+9. Expected Contribution
+</code></pre>
+<hr />
+<h1>16. 新生必须完成的三个项目</h1>
+<hr />
+<h2>Project A：传统遥感 CV Baseline</h2>
+<p>任选：</p>
+<pre><code class="language-text">LoveDA semantic segmentation
+Potsdam semantic segmentation
+DOTA detection
+LEVIR-CD change detection
+</code></pre>
+<p>要求：</p>
+<ul>
+<li>能训练；</li>
+<li>能测试；</li>
+<li>能算指标；</li>
+<li>能画预测图；</li>
+<li>能更换 backbone；</li>
+<li>能完成 ablation。</li>
+</ul>
+<hr />
+<h2>Project B：Open-Vocabulary 遥感解译</h2>
+<p>建议：</p>
+<pre><code class="language-text">CLIP / RemoteCLIP
++
+Grounding DINO / SAM
+或
+SegEarth-OV
+</code></pre>
+<p>目标：</p>
+<ul>
+<li>zero-shot；</li>
+<li>unseen category；</li>
+<li>prompt；</li>
+<li>open-vocabulary；</li>
+<li>frozen foundation model。</li>
+</ul>
+<hr />
+<h2>Project C：Agentic EO Demo</h2>
+<p>实现最简单的多工具系统：</p>
+<pre><code class="language-text">用户：
+“帮我找出这片区域中新出现的大型建筑。”
+
+Agent：
+1. 判断需要 change detection；
+2. 调用 change detector；
+3. 调用 detector / segmentor；
+4. 统计区域；
+5. 返回结构化结果和解释。
+</code></pre>
+<p>推荐工具池：</p>
+<pre><code class="language-text">scene classifier
+object detector
+semantic segmentor
+change detector
+Grounding DINO
+SAM
+RemoteCLIP
+GIS / raster tool
+</code></pre>
+<blockquote>
+<p>这个项目的重点不是“套 LangChain”，而是理解：<br />
+<strong>什么任务应该由 MLLM 自己完成，什么任务必须交给精确的视觉工具。</strong></p>
+</blockquote>
+<hr />
+<h1>17. 每篇论文必须使用统一笔记模板</h1>
+<pre><code class="language-markdown"># Paper Title
+
+## 1. Basic Information
+- Venue:
+- Year:
+- Task:
+- Code:
+
+## 2. Problem
+作者到底要解决什么问题？
+
+## 3. Motivation
+为什么已有方法不够好？
+
+## 4. Core Idea
+一句话概括方法。
+
+## 5. Architecture
+输入：
+输出：
+backbone：
+关键模块：
+
+## 6. Loss / Objective
+
+## 7. Dataset
+
+## 8. Metrics
+
+## 9. Main Results
+
+## 10. Ablation
+
+## 11. Strengths
+
+## 12. Weaknesses
+
+## 13. What I Can Reuse
+
+## 14. Code Mapping
+论文模块 → 代码文件
+
+## 15. My New Idea
+至少写 3 条。
+</code></pre>
+<hr />
+<h1>18. 跑代码时必须记录实验 Ledger</h1>
+<p>每一个实验都记录：</p>
+<pre><code class="language-text">Date
+Git commit
+Environment
+GPU
+Dataset
+Split
+Preprocessing
+Checkpoint
+Model
+Config
+Seed
+Batch size
+Learning rate
+Epoch
+Input resolution
+Metric
+Runtime
+FPS
+GPU memory
+Result
+Notes
+</code></pre>
+<p>科研最忌讳：</p>
+<blockquote>
+<p>“我记得上次好像跑到 68%。”</p>
+</blockquote>
+<p>所有结果都必须可追溯。</p>
+<hr />
+<h1>19. 如何从“复现论文”进入“做科研”</h1>
+<p>新生最常见的错误是：</p>
+<pre><code class="language-text">加一个 attention
+换一个 loss
+换 backbone
+涨 0.3%
+= 创新
+</code></pre>
+<p>真正应该问：</p>
+<h3>1. Problem Innovation</h3>
+<p>有没有真实未解决问题？</p>
+<p>例如：</p>
+<ul>
+<li>模型跨城市失效；</li>
+<li>SAR/Optical 对齐困难；</li>
+<li>zero-shot 遥感分割边界差；</li>
+<li>MLLM 只能输出文本，不能精确输出 mask；</li>
+<li>Agent 不知道何时应该调用 detector；</li>
+<li>prompt 对遥感 open-vocabulary prediction 极其敏感；</li>
+<li>多时相 MLLM 缺乏真正的时序推理。</li>
+</ul>
+<h3>2. Method Innovation</h3>
+<p>新方法是否直接针对问题？</p>
+<h3>3. Protocol Innovation</h3>
+<p>是否建立了以前没有认真评估的设置？</p>
+<h3>4. Data Innovation</h3>
+<p>是否构建新的高质量数据/benchmark？</p>
+<hr />
+<h1>20. 新生常见误区</h1>
+<h2>错误 1：直接从大模型开始</h2>
+<p>如果连：</p>
+<pre><code class="language-text">IoU
+mIoU
+backbone
+feature pyramid
+query
+self-attention
+cross-attention
+</code></pre>
+<p>都解释不清楚，不建议直接做 MLLM。</p>
+<hr />
+<h2>错误 2：只看中文视频</h2>
+<p>正确顺序：</p>
+<pre><code class="language-text">B站理解背景
+→ 论文英文原文
+→ 代码
+→ 自己运行
+→ 自己修改
+</code></pre>
+<hr />
+<h2>错误 3：只追 SOTA 数字</h2>
+<p>遥感实验经常存在：</p>
+<ul>
+<li>split 不同；</li>
+<li>crop size 不同；</li>
+<li>class mapping 不同；</li>
+<li>pretraining data 不同；</li>
+<li>TTA 不同；</li>
+<li>resolution 不同；</li>
+<li>external data 不同。</li>
+</ul>
+<p>不能只比较一个数字。</p>
+<hr />
+<h2>错误 4：一上来训练十几 B MLLM</h2>
+<p>新生第一阶段更应该研究：</p>
+<pre><code class="language-text">frozen model
+LoRA
+PEFT
+linear probing
+prompt
+tool use
+training-free
+small-scale evaluation
+</code></pre>
+<hr />
+<h2>错误 5：Agent = 调几个 API</h2>
+<p>科研型 Agent 至少要研究：</p>
+<pre><code class="language-text">intent understanding
+task decomposition
+routing
+tool selection
+reasoning
+uncertainty
+memory
+cost
+failure recovery
+evaluation
+</code></pre>
+<hr />
+<h1>21. 建议达到的“入门合格线”</h1>
+<p>完成这份路线后，应能独立回答：</p>
+<h3>CV</h3>
+<ul>
+<li>ResNet 为什么有效？</li>
+<li>U-Net skip connection 有什么作用？</li>
+<li>ViT 为什么要 patch？</li>
+<li>Swin 为什么适合 dense prediction？</li>
+<li>DETR object query 是什么？</li>
+<li>Mask2Former 为什么能统一 segmentation？</li>
+</ul>
+<h3>遥感</h3>
+<ul>
+<li>GSD 是什么？</li>
+<li>为什么遥感小目标困难？</li>
+<li>为什么 DOTA 使用旋转框？</li>
+<li>光学与 SAR 有什么本质差异？</li>
+<li>为什么变化检测必须考虑配准？</li>
+<li>为什么跨城市/跨传感器容易 domain shift？</li>
+</ul>
+<h3>VLM</h3>
+<ul>
+<li>CLIP 怎么训练？</li>
+<li>zero-shot classifier 怎么构造？</li>
+<li>prompt 为什么影响结果？</li>
+<li>RemoteCLIP 为什么比自然图像 CLIP 更适合遥感？</li>
+</ul>
+<h3>Foundation Model</h3>
+<ul>
+<li>DINO 和 CLIP 学到的 representation 有什么区别？</li>
+<li>SAM 为什么叫 promptable segmentation？</li>
+<li>foundation model 为什么不等于“万能模型”？</li>
+</ul>
+<h3>MLLM</h3>
+<ul>
+<li>LLaVA 的 vision encoder、projector、LLM 分别做什么？</li>
+<li>instruction tuning 是什么？</li>
+<li>grounding 与普通 VQA 有什么区别？</li>
+<li>为什么 MLLM 不擅长精确像素级输出？</li>
+</ul>
+<h3>Agent</h3>
+<ul>
+<li>ReAct 是什么？</li>
+<li>tool use 是什么？</li>
+<li>planner / executor 有什么区别？</li>
+<li>Agent 为什么需要 routing？</li>
+<li>什么任务应由 MLLM 内部完成？</li>
+<li>什么任务必须委托 detector / segmentor / GIS tool？</li>
+</ul>
+<hr />
+<h1>22. 最终建议的研究成长路线</h1>
+<pre><code class="language-text">阶段 1：会跑代码
+        ↓
+阶段 2：会复现实验
+        ↓
+阶段 3：会读论文
+        ↓
+阶段 4：会分析 failure case
+        ↓
+阶段 5：会提出 research question
+        ↓
+阶段 6：会设计 baseline + ablation
+        ↓
+阶段 7：会构建完整实验 protocol
+        ↓
+阶段 8：会写论文
+</code></pre>
+<p>不要把目标定成：</p>
+<blockquote>
+<p>“三个月学会所有大模型。”</p>
+</blockquote>
+<p>应该定成：</p>
+<blockquote>
+<p><strong>“六个月后，我能够独立读懂一篇遥感 AI 论文、跑通代码、复现实验、定位问题，并提出一个可验证的改进。”</strong></p>
+</blockquote>
+<hr />
+<h1>23. 最推荐的新生第一批精读顺序</h1>
+<p>如果时间有限，优先读以下 <strong>15 篇</strong>：</p>
+<pre><code class="language-text">01 ResNet
+02 U-Net
+03 ViT
+04 Swin Transformer
+05 DETR
+06 Mask2Former
+07 DINOv3
+08 CLIP
+09 SAM
+10 Grounding DINO
+11 RemoteCLIP
+12 SegEarth-OV
+13 LLaVA
+14 GeoChat
+15 RemoteAgent
+</code></pre>
+<p>变化检测方向额外：</p>
+<pre><code class="language-text">BIT
+ChangeFormer
+</code></pre>
+<p>多传感器方向额外：</p>
+<pre><code class="language-text">SatMAE
+CROMA
+DeCUR
+EarthGPT
+</code></pre>
+<p>MLLM 方向额外：</p>
+<pre><code class="language-text">BLIP-2
+RSGPT
+LHRS-Bot
+RemoteSAM
+RemoteReasoner
+</code></pre>
+<hr />
+<h1>24. 给新生的一句话</h1>
+<blockquote>
+<p><strong>不要追着模型名字跑。先把一个完整任务从数据、模型、训练、推理、指标、复现到失败分析做通。之后再进入 VLM、MLLM 和 Agent，你会发现所有前沿工作其实都建立在这些基本功之上。</strong></p>
+</blockquote>
+
+      </article>
+
+      <footer class="page-footer">
+        <p>Remote Sensing AI Research Guide · 2026</p>
+        <p>此页面作为独立学习资料托管，不加入个人主页导航与站点索引。</p>
+      </footer>
+    </main>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="./assets/guide.js"></script>
+</body>
+</html>
