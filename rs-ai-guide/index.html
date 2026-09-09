@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="googlebot" content="noindex, nofollow, noarchive">
-  <meta name="description" content="遥感图像解译与人工智能科研学习导航：CV、Foundation Model、VLM、MLLM、Open-Vocabulary 与 Agentic EO。">
+  <meta name="description" content="遥感图像解译与人工智能科研学习导航：现代计算机视觉、Earth Foundation Model、VLM、MLLM、开放词汇与 Agentic EO。">
   <title>遥感图像解译 × AI 科研学习导航</title>
   <link rel="stylesheet" href="./assets/guide.css">
 </head>
@@ -21,6 +21,7 @@
       <a class="source-link" href="./guide.md" target="_blank" rel="noopener noreferrer">Markdown</a>
     </div>
   </header>
+
   <div class="layout">
     <aside class="sidebar" id="sidebar" aria-label="文章目录">
       <div class="sidebar-inner">
@@ -29,18 +30,18 @@
         <div class="sidebar-note"><strong>2026 Edition</strong><span>Research reading guide</span></div>
       </div>
     </aside>
+
     <main class="main">
       <article class="article" id="article"><h1>遥感图像解译 × 人工智能科研学习导航</h1>
 <blockquote>
-<p><strong>面向刚进入实验室的新生。</strong><br />
-这不是打卡式学习计划，也不是“所有模型都必须会”的清单，而是一份<strong>知道该读什么、为什么读、读到什么程度</strong>的科研导航。<br />
-内容覆盖：专业英语 → 现代计算机视觉 → 视觉基础模型 → VLM / MLLM → 遥感开放词汇、推理与 Agent。<br />
-<strong>更新：2026-09。</strong> 论文优先选择已有公开代码的工作；模型附 Bilibili 中文解读资源，视频只用于辅助理解，最终以论文与代码为准。</p>
+<p>面向刚进入遥感图像解译科研的新生。<br />
+目标不是把模型名字全部记住，而是尽快建立几条连续的技术主线，之后能够直接阅读当前 CV、Earth Foundation Model、VLM、MLLM 与 Agent 方向的论文。<br />
+<strong>更新：2026-09。</strong></p>
 </blockquote>
 <hr />
 <h1>1. 先熟悉这些专业英语</h1>
-<p>不要求背整本词典，但以下词汇如果经常需要翻译，会明显拖慢读论文和看代码的速度。</p>
-<h2>1.1 遥感与地球观测</h2>
+<p>阅读论文时不需要逐词翻译，但下面这些术语应当能够直接理解。</p>
+<h2>1.1 遥感与 Earth Observation</h2>
 <table>
 <thead>
 <tr>
@@ -112,16 +113,16 @@
   <td>矢量</td>
 </tr>
 <tr>
-  <td>tile / patch / chip</td>
-  <td>图块/切片</td>
   <td>land cover</td>
   <td>地表覆盖</td>
-</tr>
-<tr>
   <td>land use</td>
   <td>土地利用</td>
+</tr>
+<tr>
   <td>cross-sensor</td>
   <td>跨传感器</td>
+  <td>geo-context</td>
+  <td>地理上下文</td>
 </tr>
 <tr>
   <td>cloud cover</td>
@@ -193,10 +194,6 @@
   <td>密集预测</td>
 </tr>
 <tr>
-  <td>small object</td>
-  <td>小目标</td>
-</tr>
-<tr>
   <td>domain shift</td>
   <td>域偏移</td>
 </tr>
@@ -216,13 +213,9 @@
   <td>robustness</td>
   <td>鲁棒性</td>
 </tr>
-<tr>
-  <td>corruption</td>
-  <td>图像退化/扰动</td>
-</tr>
 </tbody>
 </table>
-<h2>1.3 Transformer / VLM / MLLM</h2>
+<h2>1.3 Transformer / VLM / MLLM / Agent</h2>
 <table>
 <thead>
 <tr>
@@ -238,10 +231,6 @@
 <tr>
   <td>encoder / decoder</td>
   <td>编码器 / 解码器</td>
-</tr>
-<tr>
-  <td>feature map</td>
-  <td>特征图</td>
 </tr>
 <tr>
   <td>token</td>
@@ -278,6 +267,10 @@
 <tr>
   <td>contrastive learning</td>
   <td>对比学习</td>
+</tr>
+<tr>
+  <td>masked image modeling</td>
+  <td>掩码图像建模</td>
 </tr>
 <tr>
   <td>distillation</td>
@@ -317,7 +310,7 @@
 </tr>
 <tr>
   <td>grounding</td>
-  <td>将语言定位到图像实体/区域</td>
+  <td>将语言定位到图像实体或区域</td>
 </tr>
 <tr>
   <td>instruction tuning</td>
@@ -336,8 +329,8 @@
   <td>强化学习</td>
 </tr>
 <tr>
-  <td>agent / agentic AI</td>
-  <td>智能体 / 智能体式 AI</td>
+  <td>agent</td>
+  <td>智能体</td>
 </tr>
 <tr>
   <td>tool calling</td>
@@ -345,7 +338,7 @@
 </tr>
 <tr>
   <td>routing</td>
-  <td>路由/任务分发</td>
+  <td>路由</td>
 </tr>
 <tr>
   <td>planner / executor</td>
@@ -353,7 +346,7 @@
 </tr>
 <tr>
   <td>trajectory</td>
-  <td>智能体执行轨迹</td>
+  <td>执行轨迹</td>
 </tr>
 <tr>
   <td>Model Context Protocol (MCP)</td>
@@ -361,171 +354,170 @@
 </tr>
 </tbody>
 </table>
-<h2>1.4 论文里最常见的表达</h2>
-<pre><code class="language-text">We formulate ... as ...
-我们将……表述为……
-
-Unlike previous methods, ...
-与已有方法不同……
-
-To this end, we propose ...
-为此，我们提出……
-
-training-free / tuning-free
-无需训练 / 无需调参
-
-without additional supervision
-无需额外监督
-
-generalize to unseen categories
-泛化到未见类别
-
-under domain shifts
-在域偏移条件下
-
-at inference time
-在推理阶段
-
-Extensive experiments demonstrate ...
-大量实验表明……
-
-Ablation studies verify ...
-消融实验验证……
-</code></pre>
 <hr />
-<h1>2. 通用计算机视觉：只抓住这 5 篇主线论文</h1>
-<p>新生不需要先把几十年 CV 历史全部补完。ResNet、U-Net、FPN、YOLO 等应当知道基本概念，但如果准备进入当前遥感 AI 科研，更建议先把下面五篇真正读明白。</p>
-<h2>2.1 ViT — 从 CNN 进入视觉 Transformer</h2>
+<h1>2. 从 ViT 到 CLIP：先建立现代 CV 的共同语言</h1>
+<p>传统 CNN、ResNet、U-Net、FPN、YOLO 应当知道基本结构和用途，但如果目标是尽快进入当前研究，建议优先把下面五篇连起来看。</p>
+<h2>2.1 ViT</h2>
 <p><strong>An Image is Worth 16×16 Words: Transformers for Image Recognition at Scale</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2010.11929</li>
 <li>Code: https://github.com/google-research/vision_transformer</li>
-<li>Bilibili: https://www.bilibili.com/video/BV1htjzzsEYe/</li>
+<li>Bilibili: https://www.bilibili.com/video/BV1ge41137LV/</li>
 </ul>
-<p><strong>读什么：</strong> patch embedding、token、self-attention、position embedding，以及“图像如何变成序列”。</p>
+<p>关注：</p>
+<pre><code class="language-text">Image
+→ Patch
+→ Token
+→ Transformer Encoder
+→ Prediction
+</code></pre>
+<p>看懂 patch embedding、self-attention、position embedding 即可。</p>
 <hr />
-<h2>2.2 Swin Transformer — 为什么视觉需要层次化特征</h2>
+<h2>2.2 Swin Transformer</h2>
 <p><strong>Swin Transformer: Hierarchical Vision Transformer using Shifted Windows</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2103.14030</li>
 <li>Code: https://github.com/microsoft/Swin-Transformer</li>
 <li>Bilibili: https://www.bilibili.com/video/BV13L4y1475U/</li>
 </ul>
-<p><strong>读什么：</strong> window attention、shifted window、multi-scale feature。它能帮助理解为什么检测和分割不能只依赖单尺度 token。</p>
+<p>关注：</p>
+<ul>
+<li>window attention；</li>
+<li>shifted window；</li>
+<li>hierarchical feature；</li>
+<li>multi-scale representation。</li>
+</ul>
+<p>它把 Transformer 更自然地带入检测和分割。</p>
 <hr />
-<h2>2.3 DETR — 现代 query-based detection 的起点</h2>
+<h2>2.3 DETR</h2>
 <p><strong>End-to-End Object Detection with Transformers</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2005.12872</li>
 <li>Code: https://github.com/facebookresearch/detr</li>
 <li>Bilibili: https://www.bilibili.com/video/BV1T6421F7tR/</li>
 </ul>
-<p><strong>读什么：</strong> object query、Hungarian matching、set prediction。后续大量检测、分割和 SAM3 中的 detector 都能看到 DETR 的影子。</p>
+<p>关注：</p>
+<ul>
+<li>object query；</li>
+<li>Hungarian matching；</li>
+<li>set prediction；</li>
+<li>decoder query 如何表示“一个待预测目标”。</li>
+</ul>
+<p>很多后续 detector、segmentor、grounding model 都能看到这套思想。</p>
 <hr />
-<h2>2.4 Mask2Former — 统一理解现代分割</h2>
+<h2>2.4 Mask2Former</h2>
 <p><strong>Masked-attention Mask Transformer for Universal Image Segmentation</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2112.01527</li>
 <li>Code: https://github.com/facebookresearch/Mask2Former</li>
 <li>Bilibili: https://www.bilibili.com/video/BV1EA22YnEY1/</li>
 </ul>
-<p><strong>读什么：</strong> mask classification、query、masked attention，以及 semantic / instance / panoptic segmentation 如何被统一到一个框架中。</p>
+<p>关注：</p>
+<ul>
+<li>mask classification；</li>
+<li>masked attention；</li>
+<li>query-based segmentation；</li>
+<li>semantic / instance / panoptic segmentation 的统一。</li>
+</ul>
 <hr />
-<h2>2.5 CLIP — 进入开放词汇与视觉语言模型</h2>
+<h2>2.5 CLIP</h2>
 <p><strong>Learning Transferable Visual Models From Natural Language Supervision</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2103.00020</li>
 <li>Code: https://github.com/openai/CLIP</li>
 <li>Bilibili: https://www.bilibili.com/video/BV1NM411a7CP/</li>
 </ul>
-<p><strong>读什么：</strong> image encoder、text encoder、contrastive learning、zero-shot classifier、prompt template、cosine similarity。</p>
-<blockquote>
-<p>对遥感开放词汇分类、检测和分割而言，CLIP 是必须真正理解的基础。不要只会调用 <code>encode_image()</code> 和 <code>encode_text()</code>。</p>
-</blockquote>
-<hr />
-<h1>3. 接下来必须知道的视觉基础模型</h1>
-<p>这一部分不要求按年份“全读”，重点是理解现代视觉系统正在从<strong>单任务网络</strong>转向<strong>可提示、开放词汇、可迁移的基础模型</strong>。</p>
-<h2>3.1 DINOv3 — 强视觉表征</h2>
+<p>关注：</p>
+<pre><code class="language-text">Image Encoder ─┐
+               ├→ Shared Semantic Space
+Text Encoder ──┘
+</code></pre>
+<p>以及：</p>
 <ul>
-<li>Paper: https://arxiv.org/abs/2508.10104</li>
+<li>contrastive learning；</li>
+<li>zero-shot classification；</li>
+<li>prompt template；</li>
+<li>cosine similarity；</li>
+<li>image-text alignment。</li>
+</ul>
+<p>从这里开始，类别不再一定由固定分类头定义，而可以由自然语言定义。</p>
+<hr />
+<h1>3. 接着理解三套通用视觉能力</h1>
+<h1>3.1 DINO 系列：视觉表征</h1>
+<p>建议从 DINOv2 的思想理解到 DINOv3。</p>
+<ul>
+<li>DINOv3 Paper: https://arxiv.org/abs/2508.10104</li>
 <li>Code: https://github.com/facebookresearch/dinov3</li>
 <li>Bilibili: https://www.bilibili.com/video/BV1s7JCzbETY/</li>
 </ul>
-<p>重点关注：</p>
+<p>关注：</p>
 <ul>
 <li>self-supervised representation；</li>
-<li>frozen visual features；</li>
+<li>frozen backbone；</li>
 <li>dense feature；</li>
-<li>linear probing；</li>
-<li>satellite-pretrained DINOv3 权重。</li>
+<li>feature correspondence；</li>
+<li>linear probing / fine-tuning。</li>
 </ul>
-<p>DINO 系列更像是在学习一个很强的“视觉表示空间”；CLIP 则把视觉表示进一步对齐到语言空间。理解两者差异非常重要。</p>
+<p>可以简单理解：</p>
+<pre><code class="language-text">DINO：强调视觉表征本身
+CLIP：强调视觉与语言对齐
+</code></pre>
+<p>这两类特征现在都大量进入遥感研究。</p>
 <hr />
-<h1>4. SAM 系列：从“提示分割”到“文本概念分割”</h1>
-<h2>SAM 1</h2>
+<h1>3.2 SAM 系列：Promptable Segmentation</h1>
+<h2>SAM</h2>
 <p><strong>Segment Anything</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2304.02643</li>
 <li>Code: https://github.com/facebookresearch/segment-anything</li>
 </ul>
-<p>理解：</p>
+<p>结构：</p>
 <pre><code class="language-text">Image Encoder
 + Prompt Encoder
 + Mask Decoder
 </code></pre>
-<p>SAM1 的核心不是“分割精度天下第一”，而是把 segmentation 变成了 <strong>promptable task</strong>。</p>
+<p>首先理解为什么 segmentation 可以从固定类别预测变成 promptable segmentation。</p>
 <h2>SAM 2</h2>
-<p><strong>Segment Anything in Images and Videos</strong></p>
 <ul>
 <li>Code: https://github.com/facebookresearch/sam2</li>
 </ul>
-<p>理解：</p>
+<p>在 SAM 基础上继续理解：</p>
 <ul>
-<li>image + video unified segmentation；</li>
-<li>memory mechanism；</li>
+<li>image / video segmentation；</li>
+<li>memory；</li>
 <li>object tracking；</li>
 <li>prompt propagation。</li>
 </ul>
 <h2>SAM 3 / SAM 3.1</h2>
-<p><strong>SAM 3: Segment Anything with Concepts</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2511.16719</li>
 <li>Code: https://github.com/facebookresearch/sam3</li>
-<li>Bilibili（SAM1→SAM3）：https://www.bilibili.com/video/BV1Px9aBPEft/</li>
+<li>Bilibili: https://www.bilibili.com/video/BV1Px9aBPEft/</li>
 </ul>
-<p>SAM3 是值得特别关注的一代：除了点、框、mask 等视觉提示，还把<strong>短文本概念</strong>直接引入检测、分割和跟踪；官方在 2026 年进一步发布了 SAM 3.1。</p>
-<p>阅读时重点看：</p>
+<p>继续关注：</p>
 <ul>
+<li>text concept；</li>
 <li>text-conditioned detection；</li>
-<li>presence token；</li>
-<li>detector + tracker；</li>
-<li>open-vocabulary concept segmentation；</li>
-<li>“concept”与传统固定类别 segmentation 的区别。</li>
+<li>presence prediction；</li>
+<li>segmentation + tracking；</li>
+<li>open-vocabulary concept segmentation。</li>
 </ul>
 <hr />
-<h1>5. Grounding 系列：让语言真正落到空间位置</h1>
-<h2>Grounding DINO</h2>
+<h1>3.3 Grounding DINO：Text → Object</h1>
+<p><strong>Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection</strong></p>
 <ul>
 <li>Paper: https://arxiv.org/abs/2303.05499</li>
 <li>Code: https://github.com/IDEA-Research/GroundingDINO</li>
 <li>Bilibili: https://www.bilibili.com/video/BV1rjgBzHEBW/</li>
 </ul>
-<p>它解决的是：</p>
-<pre><code class="language-text">文本描述
-   ↓
-图像中对应目标
-   ↓
+<p>关注：</p>
+<pre><code class="language-text">Text
+ ↓
+Grounding DINO
+ ↓
 Bounding Box
 </code></pre>
-<p>重点理解：</p>
-<ul>
-<li>open-set / open-vocabulary detection；</li>
-<li>text-conditioned object query；</li>
-<li>phrase grounding；</li>
-<li>language 与 detection feature 如何交互。</li>
-</ul>
-<h2>Grounding DINO + SAM</h2>
-<p>这是非常重要的组合范式：</p>
+<p>它与 SAM 组合后得到非常典型的现代视觉工具链：</p>
 <pre><code class="language-text">Text
  ↓
 Grounding DINO
@@ -536,381 +528,579 @@ SAM
  ↓
 Mask
 </code></pre>
-<p>它代表了一个很有价值的研究思想：</p>
+<p>这个模式以后会直接延伸到 MLLM 和 Agent：</p>
 <blockquote>
-<p><strong>语言模型/grounding 模型负责“找什么”，专业分割模型负责“切多准”。</strong></p>
+<p>语言模型负责理解目标，专业视觉模型负责精确空间预测。</p>
 </blockquote>
-<p>后面的遥感 MLLM 与 Agent 也经常沿用类似的职责分工。</p>
 <hr />
-<h1>6. 从 VLM 到 MLLM：理解三代模型即可</h1>
-<h2>BLIP-2</h2>
+<h1>4. 从 VLM 到 MLLM：三类结构足够建立基础</h1>
+<h2>4.1 BLIP-2</h2>
 <ul>
 <li>Paper: https://arxiv.org/abs/2301.12597</li>
 <li>Code: https://github.com/salesforce/LAVIS</li>
 <li>Bilibili: https://www.bilibili.com/video/BV18u4y137ZV/</li>
 </ul>
-<p>看懂 <strong>Q-Former 如何连接 frozen vision encoder 与 frozen LLM</strong>。</p>
-<h2>LLaVA</h2>
+<p>重点看 Q-Former 如何连接 frozen vision encoder 和 frozen LLM。</p>
+<hr />
+<h2>4.2 LLaVA</h2>
 <ul>
 <li>Paper: https://arxiv.org/abs/2304.08485</li>
 <li>Code: https://github.com/haotian-liu/LLaVA</li>
 <li>Bilibili: https://www.bilibili.com/video/BV1nw4m1S7nZ/</li>
 </ul>
-<p>看懂：</p>
+<p>理解最基本的 MLLM 结构：</p>
 <pre><code class="language-text">Vision Encoder
-  ↓
-Projector
-  ↓
-LLM
-  ↓
-Language Response
+→ Projector
+→ LLM
+→ Response
 </code></pre>
-<p>以及 visual instruction tuning 为什么能让 LLM“看图聊天”。</p>
-<h2>Qwen2.5-VL / Qwen3-VL</h2>
+<p>再理解 visual instruction tuning。</p>
+<hr />
+<h2>4.3 Qwen2.5-VL / Qwen3-VL</h2>
 <ul>
 <li>Qwen2.5-VL: https://github.com/QwenLM/Qwen2.5-VL</li>
 <li>Qwen3-VL: https://github.com/QwenLM/Qwen3-VL</li>
 <li>Bilibili（Qwen2.5-VL）: https://www.bilibili.com/video/BV1wnbGzbEdy/</li>
 <li>Bilibili（Qwen3-VL）: https://www.bilibili.com/video/BV1Vx421m7r7?p=3</li>
 </ul>
-<p>建议重点观察现代通用 MLLM 已经从：</p>
-<pre><code class="language-text">Image → Caption / VQA
+<p>观察现代 MLLM 的能力如何从：</p>
+<pre><code class="language-text">Caption / VQA
 </code></pre>
-<p>逐渐走向：</p>
-<pre><code class="language-text">Image / Video
-→ Spatial Reasoning
-→ Grounding
-→ Tool Use
-→ Agent
+<p>扩展到：</p>
+<pre><code class="language-text">Grounding
++ Spatial Reasoning
++ Video
++ Tool Use
++ Agent
 </code></pre>
-<p>因此，做遥感 MLLM 时不能默认“遥感专用模型一定优于通用 MLLM”。2026 年的系统评测已经表明，强通用 MLLM 在部分遥感理解任务上可以匹配甚至超过专用 RS-MLLM。</p>
 <hr />
-<h1>7. 遥感 AI：先知道三篇承上启下的工作</h1>
-<p>下面三篇并非 2026 最新，但它们非常适合理解“通用视觉模型如何进入遥感”。</p>
-<h2>RemoteCLIP — 遥感视觉语言预训练</h2>
+<h1>5. 遥感主线一：Earth Foundation Model</h1>
+<p>这一方向不要把每个遥感预训练模型都读一遍。重点理解遥感基础模型的问题是如何一步步变化的。</p>
+<h2>SatMAE — NeurIPS 2022</h2>
+<p><strong>SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery</strong></p>
 <ul>
-<li>Paper: https://arxiv.org/abs/2306.11029</li>
-<li>Code: https://github.com/ChenDelong1999/RemoteCLIP</li>
+<li>Paper: https://arxiv.org/abs/2207.08051</li>
+<li>Code: https://github.com/sustainlab-group/SatMAE</li>
 </ul>
-<p>值得读的原因：理解为什么自然图像 CLIP 直接迁移到遥感会产生 domain gap，以及遥感 image-text alignment 如何构建。</p>
-<h2>SegEarth-OV — Training-Free Open-Vocabulary Remote Sensing Segmentation</h2>
-<ul>
-<li>Paper: https://arxiv.org/abs/2410.01768</li>
-<li>Code: https://github.com/likyoo/SegEarth-OV</li>
-<li>Venue: CVPR 2025 Oral</li>
-</ul>
-<p>值得读的原因：它把 CLIP/VLM 的开放词汇能力直接用于遥感密集预测，而且强调 training-free inference，是理解 2026 年 OVRSS 工作的重要前置论文。</p>
-<h2>GeoChat — 遥感 MLLM</h2>
-<ul>
-<li>Paper: https://arxiv.org/abs/2311.15826</li>
-<li>Code: https://github.com/mbzuai-oryx/GeoChat</li>
-<li>Venue: CVPR 2024</li>
-</ul>
-<p>值得读的原因：从传统 image-text retrieval / captioning 进入真正的遥感多模态对话、grounding 与高分辨率理解。</p>
-<hr />
-<h1>8. 2026 遥感前沿：基础模型</h1>
-<h2>8.1 TESSERA — 时间序列 Earth Foundation Model</h2>
-<ul>
-<li>Venue: CVPR 2026</li>
-<li>Code: https://github.com/ucam-eo/tessera</li>
-<li>Paper / project information: repository 中提供</li>
-</ul>
-<p>TESSERA 面向 satellite time-series，强调<strong>像素级时序地球表征</strong>。</p>
-<p>建议关注的问题：</p>
-<ul>
-<li>为什么 EO foundation model 不应该只处理单张 RGB？</li>
-<li>seasonal / temporal pattern 如何进入 representation？</li>
-<li>10 m resolution、年度 embedding 的能力边界在哪里？</li>
-</ul>
-<p>这是理解“Earth Foundation Model ≠ ImageNet 大模型”的好例子。</p>
-<hr />
-<h2>8.2 GeoSANE — Learning Geospatial Representations from Models, not Data</h2>
-<ul>
-<li>Venue: CVPR 2026</li>
-<li>Code: https://github.com/HSG-AIML/GeoSANE</li>
-</ul>
-<p>这篇工作的切入点很特别：研究<strong>从已有模型本身而不是重新收集海量数据</strong>来学习地理空间表示。</p>
-<p>建议把它作为“foundation model 下一步还能怎么做”的思想性论文，而不是只盯着更大的数据和参数量。</p>
-<hr />
-<h1>9. 2026 遥感前沿：Open-Vocabulary Segmentation</h1>
-<p>这是目前遥感视觉里非常活跃的一条线。</p>
-<h2>9.1 RSKT-Seg</h2>
-<p><strong>Exploring Efficient Open-Vocabulary Segmentation in the Remote Sensing</strong></p>
-<ul>
-<li>Venue: AAAI 2026 Oral</li>
-<li>Paper: https://arxiv.org/abs/2509.12040</li>
-<li>Code: https://github.com/LiBingyu01/RSKT-Seg</li>
-</ul>
-<p>关注：</p>
-<ul>
-<li>OVRSIS benchmark；</li>
-<li>rotation-aware / multi-direction information；</li>
-<li>remote sensing knowledge transfer；</li>
-<li>open-vocabulary segmentation 如何真正适配遥感域。</li>
-</ul>
-<hr />
-<h2>9.2 ConInfer</h2>
-<p><strong>Context-Aware Inference for Training-Free Open-Vocabulary Remote Sensing Segmentation</strong></p>
-<ul>
-<li>Venue: CVPR 2026 Findings</li>
-<li>Code: https://github.com/Dog-Yang/ConInfer</li>
-</ul>
-<p>它提出一个很值得思考的问题：</p>
+<p>从这里理解：</p>
 <blockquote>
-<p>遥感场景具有强空间与语义上下文，仅仅逐 patch / 逐 pixel 独立预测是否合理？</p>
+<p>MAE / ViT 到了遥感领域以后，为什么必须考虑 multispectral 和 temporal data？</p>
 </blockquote>
-<p>建议重点看它如何在 <strong>training-free</strong> 条件下利用跨空间单元上下文，而不是只把注意力放在 backbone。</p>
 <hr />
-<h2>9.3 MM-OVSeg</h2>
-<p><strong>Multimodal Optical–SAR Fusion for Open-Vocabulary Segmentation in Remote Sensing</strong></p>
+<h2>Scale-MAE — ICCV 2023</h2>
+<p><strong>Scale-MAE: A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning</strong></p>
 <ul>
-<li>Venue: CVPR 2026</li>
-<li>Code: https://github.com/Jimmyxichen/MM-OVSeg</li>
+<li>Paper: https://arxiv.org/abs/2212.14532</li>
+<li>Code: https://github.com/bair-climate-initiative/scale-mae</li>
 </ul>
-<p>这一工作把 OVS 从单一 optical 推向：</p>
+<p>从这里理解 GSD 和真实地理尺度为什么不同于普通 resize。</p>
+<hr />
+<h2>CROMA — NeurIPS 2023</h2>
+<p><strong>CROMA: Remote Sensing Representations with Contrastive Radar-Optical Masked Autoencoders</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2311.00566</li>
+<li>Code: https://github.com/antofuller/CROMA</li>
+</ul>
+<p>从这里理解：</p>
 <pre><code class="language-text">Optical
 +
 SAR
 +
-Open Vocabulary
+Contrastive Learning
++
+Masked Modeling
 </code></pre>
-<p>它很适合理解未来遥感开放世界感知为什么一定会走向<strong>多模态、多传感器</strong>，而不是只在 RGB benchmark 上竞争。</p>
+<p>以及空间对齐的多传感器数据为什么适合做自监督学习。</p>
 <hr />
-<h1>10. 2026 遥感前沿：变化检测与视觉基础模型</h1>
-<h2>PeftCD</h2>
-<p><strong>PeftCD: Leveraging Vision Foundation Models with Parameter-Efficient Fine-Tuning for Remote Sensing Change Detection</strong></p>
+<h2>SkySense — CVPR 2024</h2>
+<p><strong>SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery</strong></p>
 <ul>
-<li>Venue: IEEE JSTARS 2026</li>
-<li>Code: https://github.com/dyzy41/PeftCD</li>
+<li>Paper: https://arxiv.org/abs/2312.10115</li>
+<li>Code: https://github.com/Jack-bo1220/SkySense</li>
 </ul>
-<p>它把 <strong>SAM2 / DINOv3 + PEFT</strong> 引入变化检测。</p>
-<p>阅读价值不只是看指标，而是思考：</p>
-<ul>
-<li>foundation model 到底需要 full fine-tuning 吗？</li>
-<li>LoRA / PEFT 能否保留 foundation prior？</li>
-<li>SAM 与 DINO 的 representation 对 change detection 有什么不同？</li>
-</ul>
+<p>把前面的几个问题合在一起看：</p>
+<pre><code class="language-text">Optical + SAR
++ Temporal
++ Geo-context
+</code></pre>
+<p>这里开始能够明显看到 Earth Foundation Model 与普通 RGB foundation model 的差别。</p>
 <hr />
-<h1>11. 2026 遥感前沿：MLLM 与地理空间推理</h1>
-<h2>11.1 GeoReason</h2>
-<p><strong>Aligning Thinking and Answering in Remote Sensing Vision-Language Models via Logical Consistency Reinforcement Learning</strong></p>
+<h2>Galileo — ICML 2025</h2>
+<p><strong>Galileo: Learning Global &amp; Local Features of Many Remote Sensing Modalities</strong></p>
 <ul>
-<li>Paper: https://arxiv.org/abs/2601.04118</li>
-<li>Code: https://github.com/canlanqianyan/GeoReason</li>
+<li>Paper: https://arxiv.org/abs/2502.09356</li>
+<li>Code: https://github.com/nasaharvest/galileo</li>
 </ul>
-<p>它关注的不只是“答案对不对”，而是：</p>
+<p>关注：</p>
+<ul>
+<li>multispectral；</li>
+<li>SAR；</li>
+<li>elevation；</li>
+<li>weather；</li>
+<li>temporal input；</li>
+<li>global / local features；</li>
+<li>flexible modality input。</li>
+</ul>
+<p>它适合帮助理解“many modalities + many spatial scales”这一类统一 Earth representation。</p>
+<hr />
+<h2>Copernicus-FM — ICCV 2025 Oral</h2>
+<p><strong>Towards a Unified Copernicus Foundation Model for Earth Vision</strong></p>
+<ul>
+<li>Code / Project: https://github.com/zhu-xlab/Copernicus-FM</li>
+</ul>
+<p>建议重点看：</p>
+<pre><code class="language-text">Sentinel-1
+Sentinel-2
+Sentinel-3
+Sentinel-5P
+...
+      ↓
+Unified Copernicus Representation
+</code></pre>
+<p>它把研究范围从常见的 Sentinel-1/2 进一步扩展到 Copernicus 多任务、多圈层数据。</p>
+<hr />
+<h2>TerraMind — ICCV 2025</h2>
+<p><strong>TerraMind: Large-Scale Generative Multimodality for Earth Observation</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2504.11171</li>
+<li>Code: https://github.com/IBM/terramind</li>
+</ul>
+<p>这里需要注意方向变化：</p>
+<pre><code class="language-text">Multi-modal Encoder
+      ↓
+Any-to-Any Generative Foundation Model
+</code></pre>
+<p>并理解它提出的 Thinking in Modalities：</p>
+<pre><code class="language-text">已知模态
+→ 生成辅助模态
+→ 帮助下游预测
+</code></pre>
+<hr />
+<h2>Prithvi-EO-2.0 — IEEE TGRS 2025</h2>
+<p><strong>Prithvi-EO-2.0: A Versatile Multitemporal Foundation Model for Earth Observation Applications</strong></p>
+<ul>
+<li>IBM / NASA</li>
+<li>Model / Resources: https://huggingface.co/ibm-nasa-geospatial</li>
+<li>TerraTorch: https://github.com/IBM/terratorch</li>
+</ul>
+<p>关注：</p>
+<ul>
+<li>global HLS time series；</li>
+<li>temporal embedding；</li>
+<li>location embedding；</li>
+<li>land cover / crop / disaster / ecosystem applications。</li>
+</ul>
+<p>它也是理解“基础模型如何真正进入 Earth science application”的一个入口。</p>
+<hr />
+<h2>TESSERA — CVPR 2026</h2>
+<p><strong>TESSERA: Temporal Embeddings of Surface Spectra for Earth Representation and Analysis</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2506.20380</li>
+<li>Code: https://github.com/ucam-eo/tessera</li>
+</ul>
+<p>重点看：</p>
+<pre><code class="language-text">长期 Sentinel-1/2 observations
+        ↓
+Spectral-temporal representation
+        ↓
+Pixel-wise Earth embedding
+</code></pre>
+<p>它把 time-series information 放到了更加中心的位置。</p>
+<hr />
+<h2>PANGAEA — IEEE Geoscience and Remote Sensing Magazine 2026</h2>
+<p><strong>PANGAEA: Assessing Geospatial Foundation Models Capabilities through a Global and Inclusive Benchmark</strong></p>
+<ul>
+<li>Code: https://github.com/VMarsocci/pangaea-bench</li>
+</ul>
+<p>读 Earth Foundation Model 时建议同时看 PANGAEA。</p>
+<p>原因很简单：</p>
 <blockquote>
-<p><strong>推理过程是不是也真的正确？</strong></p>
+<p>不同论文使用不同数据集、不同 fine-tuning protocol 和不同 sensor 时，单独比较论文主表往往无法说明模型的整体能力。</p>
 </blockquote>
-<p>重点概念：</p>
+<p>PANGAEA 提供统一的任务、传感器、分辨率、时间与地理覆盖评测框架，可以帮助建立更正确的 GFM 比较方式。</p>
+<hr />
+<h1>6. 遥感主线二：Vision-Language → Open World</h1>
+<h1>6.1 RemoteCLIP — IEEE TGRS 2024</h1>
+<p><strong>RemoteCLIP: A Vision Language Foundation Model for Remote Sensing</strong></p>
 <ul>
-<li>pseudo-reasoning；</li>
-<li>logical hallucination；</li>
-<li>logical consistency reward；</li>
-<li>RL-based RS-VLM reasoning。</li>
+<li>Paper: https://arxiv.org/abs/2306.11029</li>
+<li>Code: https://github.com/ChenDelong1999/RemoteCLIP</li>
+</ul>
+<p>把 CLIP 带到遥感域。</p>
+<p>重点看：</p>
+<ul>
+<li>remote-sensing image-text pair；</li>
+<li>domain gap；</li>
+<li>zero-shot classification；</li>
+<li>image-text retrieval。</li>
 </ul>
 <hr />
-<h2>11.2 RemoteReasoner</h2>
+<h1>6.2 GeoChat — CVPR 2024</h1>
+<p><strong>GeoChat: Grounded Large Vision-Language Model for Remote Sensing</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2311.15826</li>
+<li>Code: https://github.com/mbzuai-oryx/GeoChat</li>
+</ul>
+<p>从这里进入遥感 MLLM：</p>
+<pre><code class="language-text">Remote Sensing Image
++ Instruction
+→ Conversation
++ Grounding
+</code></pre>
+<p>重点看高分辨率、小目标和 region-level understanding。</p>
+<hr />
+<h1>6.3 SegEarth-OV — CVPR 2025 Oral</h1>
+<p><strong>SegEarth-OV: Towards Training-Free Open-Vocabulary Segmentation for Remote Sensing Images</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2410.01768</li>
+<li>Code: https://github.com/likyoo/SegEarth-OV</li>
+</ul>
+<p>它连接了：</p>
+<pre><code class="language-text">CLIP
+→ Dense Feature
+→ Open Vocabulary
+→ Remote-Sensing Semantic Segmentation
+</code></pre>
+<p>重点理解：</p>
+<ul>
+<li>training-free OVSS；</li>
+<li>CLIP patch feature；</li>
+<li>spatial detail recovery；</li>
+<li>global bias。</li>
+</ul>
+<hr />
+<h1>6.4 SkySense-O — CVPR 2025</h1>
+<p><strong>SkySense-O: Towards Open-World Remote Sensing Interpretation with Vision-Centric Visual-Language Modeling</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2503.16608</li>
+<li>Code: https://github.com/zqcrafts/SkySense-O</li>
+</ul>
+<p>这里研究的问题已经不仅是一个 segmentation benchmark，而是：</p>
+<pre><code class="language-text">Vision-Language Representation
+→ Open-category Recognition
+→ Localization
+→ Open-world Interpretation
+</code></pre>
+<p>可以和 RemoteCLIP、SegEarth-OV 连起来看。</p>
+<hr />
+<h1>6.5 EarthDial — CVPR 2025</h1>
+<p><strong>EarthDial: Turning Multi-sensory Earth Observations to Interactive Dialogues</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2412.15190</li>
+<li>Code: https://github.com/hiyamdebary/EarthDial</li>
+</ul>
+<p>它把遥感 MLLM 扩展到：</p>
+<pre><code class="language-text">RGB
++ SAR
++ Multispectral
++ Multi-resolution
++ Multi-temporal
+→ Interactive Dialogue
+</code></pre>
+<p>覆盖 classification、detection、caption、VQA、reasoning、grounding 和 temporal analysis。</p>
+<hr />
+<h1>7. 遥感主线三：Grounded Reasoning → Agent</h1>
+<p>这一阶段要关注的重点已经不是“模型能不能输出一段自然语言”，而是：</p>
+<blockquote>
+<p>模型是否真的定位到了正确区域、是否正确使用多时相与多传感器信息、是否知道什么时候需要调用外部工具。</p>
+</blockquote>
+<hr />
+<h2>TerraScope — CVPR 2026</h2>
+<p><strong>TerraScope: Pixel-Grounded Visual Reasoning for Earth Observation</strong></p>
+<ul>
+<li>Project / Paper / Code: https://shuyansy.github.io/terrascope/</li>
+</ul>
+<p>核心变化：</p>
+<pre><code class="language-text">Question
+→ Reasoning
+→ Answer
+</code></pre>
+<p>变成：</p>
+<pre><code class="language-text">Question
+→ Reasoning
+→ Pixel-level Visual Evidence
+→ Answer
+</code></pre>
+<p>它同时考虑：</p>
+<ul>
+<li>optical / SAR；</li>
+<li>multi-temporal reasoning；</li>
+<li>pixel mask；</li>
+<li>response accuracy；</li>
+<li>spatial grounding quality。</li>
+</ul>
+<p>这代表一个很值得关注的趋势：</p>
+<blockquote>
+<p>MLLM 的 reasoning 需要能够被视觉证据验证。</p>
+</blockquote>
+<hr />
+<h2>RemoteReasoner — AAAI 2026</h2>
 <p><strong>RemoteReasoner: Towards Unifying Geospatial Reasoning Workflow</strong></p>
 <ul>
-<li>Venue: AAAI 2026</li>
 <li>Paper: https://arxiv.org/abs/2507.19280</li>
 <li>Code: https://github.com/1e12Leon/RemoteReasoner</li>
 </ul>
-<p>非常值得看，因为它开始从“一个模型对应一个任务”转向：</p>
+<p>关注：</p>
 <pre><code class="language-text">Instruction
-   ↓
-Reasoning
-   ↓
-Task Transformation
-   ↓
-Object / Region / Pixel-level Output
+→ Reasoning
+→ Task Transformation
+→ Object / Region / Pixel-level Output
 </code></pre>
-<p>并利用 RL 增强推理自主性。</p>
+<p>以及 RL 如何用于 geospatial reasoning。</p>
+<p>这篇可以作为从 MLLM 进入 reasoning workflow 的衔接阅读。</p>
 <hr />
-<h2>11.3 GeoViS</h2>
-<p><strong>GeoViS: Geospatially Rewarded Visual Search for Remote Sensing Visual Grounding</strong></p>
-<ul>
-<li>Venue: CVPR 2026</li>
-<li>Code: https://github.com/Zhang-Peirong/GeoVis</li>
-</ul>
-<p>GeoViS 很适合理解遥感 MLLM 的一个真实困难：</p>
-<blockquote>
-<p>一张超高分辨率图像里，目标可能只占极少像素。把整张图一次送进 MLLM，并不意味着模型真的“看见”了小目标。</p>
-</blockquote>
-<p>它将 grounding 变成<strong>搜索 → 局部聚焦 → 条件定位</strong>，并引入 geospatial reward 与 visual search。</p>
-<hr />
-<h1>12. 2026 遥感前沿：Agentic Earth Observation</h1>
-<p>如果说 MLLM 是“能看图、能回答”，那么 Agent 研究的问题是：</p>
-<blockquote>
-<p><strong>模型能不能理解真实意图，并决定什么时候自己回答、什么时候调用检测器、分割器、变化检测、GIS 或光谱分析工具？</strong></p>
-</blockquote>
-<p>这是 2026 年遥感 AI 最值得关注的方向之一。</p>
-<hr />
-<h2>12.1 Earth-Agent</h2>
+<h2>Earth-Agent — ICLR 2026</h2>
 <p><strong>Earth-Agent: Unlocking the Full Landscape of Earth Observation with Agents</strong></p>
 <ul>
-<li>Venue: ICLR 2026</li>
 <li>Code: https://github.com/opendatalab/Earth-Agent</li>
 </ul>
-<p>特点：</p>
-<ul>
-<li>ReAct-style agent；</li>
-<li>104 个 EO 专业工具；</li>
-<li>Index / Inversion / Perception / Analysis / Statistics；</li>
-<li>RGB 与 spectral EO；</li>
-<li>同时评估最终结果与 tool trajectory。</li>
-</ul>
-<p>阅读时不要只看“大量工具”，而要看：</p>
-<pre><code class="language-text">如何定义工具？
-如何选择工具？
-如何评估工具顺序？
-如何评估参数是否正确？
+<p>它开始把 EO 问题明确组织成：</p>
+<pre><code class="language-text">Goal
+→ Reasoning
+→ Tool Selection
+→ Tool Execution
+→ Observation
+→ Next Action
+→ Result
 </code></pre>
-<hr />
-<h2>12.2 OpenEarthAgent</h2>
-<p><strong>A Unified Framework for Tool-Augmented Geospatial Agents</strong></p>
+<p>工具覆盖：</p>
+<pre><code class="language-text">Index
+Inversion
+Perception
+Analysis
+Statistics
+</code></pre>
+<p>阅读时重点关注的不是工具数量，而是：</p>
 <ul>
-<li>Venue: ECCV 2026</li>
-<li>Paper: https://arxiv.org/abs/2602.17665</li>
-<li>Code: https://github.com/mbzuai-oryx/OpenEarthAgent</li>
+<li>task decomposition；</li>
+<li>tool selection；</li>
+<li>parameter prediction；</li>
+<li>trajectory evaluation；</li>
+<li>result evaluation。</li>
 </ul>
-<p>它进一步把：</p>
+<hr />
+<h2>OpenEarthAgent — ECCV 2026</h2>
+<p><strong>OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents</strong></p>
+<ul>
+<li>Paper: https://arxiv.org/abs/2602.17665</li>
+</ul>
+<p>这条线进一步把：</p>
 <pre><code class="language-text">Optical / SAR
 GIS
-NDVI / NBR / NDBI
+Spectral Index
 Detection
 Segmentation
 Change Detection
 </code></pre>
-<p>纳入统一工具系统，并对 reasoning trajectory 进行监督。</p>
-<p>对于想做“真正可执行的地理空间 Agent”的同学，这比单纯学习 LangChain 更有价值。</p>
-<hr />
-<h2>12.3 RemoteAgent</h2>
-<p><strong>RemoteAgent: Bridging Vague Human Intents and Earth Observation with RL-based Agentic MLLMs</strong></p>
-<ul>
-<li>Paper: https://arxiv.org/abs/2604.07765</li>
-<li>Code: https://github.com/1e12Leon/RemoteAgent</li>
-</ul>
-<p>RemoteAgent 关注的是一个更接近真实应用的问题：</p>
+<p>组织到统一的 geospatial agent workflow 中。</p>
+<p>到这里，新生应该能够理解：</p>
 <blockquote>
-<p>用户通常不会说“请运行语义分割模型并返回第 4 类 mask”，而会说“帮我找出这里明显被开发的区域”。</p>
+<p>Agentic EO 并不是“让 LLM 调几个 API”，而是让模型在地理空间任务中完成任务理解、工具路由、执行、反馈和结果验证。</p>
 </blockquote>
-<p>因此 Agent 需要：</p>
-<pre><code class="language-text">Vague Human Intent
-       ↓
-Intent Understanding
-       ↓
-Capability Judgement
-       ↓
-Direct MLLM Reasoning
-       or
-External Expert Tool
-       ↓
-Result
-</code></pre>
-<p>最值得思考的是 <strong>intrinsic capability vs. extrinsic tool execution</strong>：</p>
-<ul>
-<li>MLLM 本身能可靠完成的任务，不必每次调用昂贵工具；</li>
-<li>对像素级、精度敏感任务，应交给专业 detector / segmentor / change detector。</li>
-</ul>
-<p>这比“所有问题都调用所有工具”更接近实用 Agent。</p>
 <hr />
-<h1>13. 看完这些论文后，应该形成什么认识？</h1>
-<p>不是背住模型名，而是理解几条技术演进主线。</p>
-<h2>主线 A：从固定类别到开放世界</h2>
-<pre><code class="language-text">Closed-set classifier
-→ CLIP
-→ Open-vocabulary Detection
-→ Open-vocabulary Segmentation
-→ Text-concept Segmentation
+<h1>8. 把这些论文连起来看</h1>
+<p>如果只看单篇论文，很容易变成模型名收藏。更建议记住下面四条关系。</p>
+<h2>8.1 视觉模型主线</h2>
+<pre><code class="language-text">ViT
+→ Swin
+→ DETR / Mask2Former
+→ DINO
+→ SAM / Grounding DINO
 </code></pre>
-<p>对应代表：</p>
+<p>问题从“如何提取视觉特征”逐渐走向“如何用 query / prompt 操作视觉对象”。</p>
+<hr />
+<h2>8.2 Vision-Language 主线</h2>
 <pre><code class="language-text">CLIP
 → Grounding DINO
-→ SegEarth-OV / RSKT-Seg
+→ LLaVA / Qwen-VL
+→ GeoChat / EarthDial
+→ TerraScope
+</code></pre>
+<p>问题从：</p>
+<pre><code class="language-text">Image 和 Text 能否对齐？
+</code></pre>
+<p>逐渐走向：</p>
+<pre><code class="language-text">语言能否准确找到对象？
+模型能否进行空间推理？
+推理是否有可验证的视觉证据？
+</code></pre>
+<hr />
+<h2>8.3 Earth Foundation Model 主线</h2>
+<pre><code class="language-text">SatMAE
+→ Scale-MAE / CROMA
+→ SkySense
+→ Galileo / Copernicus-FM
+→ TerraMind / Prithvi-EO-2.0
+→ TESSERA
+</code></pre>
+<p>问题从：</p>
+<pre><code class="language-text">遥感图像如何做自监督预训练？
+</code></pre>
+<p>扩展为：</p>
+<pre><code class="language-text">不同 resolution
+不同 GSD
+不同 sensor
+不同 spectral band
+不同 temporal sequence
+不同 geography
+如何进入同一个 Earth representation？
+</code></pre>
+<hr />
+<h2>8.4 Open World → Agent 主线</h2>
+<pre><code class="language-text">RemoteCLIP
+→ SegEarth-OV / SkySense-O
 → SAM3
+→ MLLM Grounding
+→ TerraScope / RemoteReasoner
+→ Earth-Agent / OpenEarthAgent
+</code></pre>
+<p>任务定义开始从：</p>
+<pre><code class="language-text">固定类别预测
+</code></pre>
+<p>转向：</p>
+<pre><code class="language-text">自然语言表达需求
+→ 理解目标
+→ 搜索 / 定位
+→ 精确感知
+→ 调用专业工具
+→ 返回可验证结果
 </code></pre>
 <hr />
-<h2>主线 B：从自然图像模型到 Earth Foundation Model</h2>
-<pre><code class="language-text">ImageNet Pretraining
-→ Self-supervised Vision
-→ DINO
-→ Remote-sensing Pretraining
-→ Multi-sensor / Temporal Earth Foundation Model
+<h1>9. 根据准备研究的方向选择阅读入口</h1>
+<p>这不是固定学习计划，只是减少无效阅读。</p>
+<h2>如果准备做传统遥感检测 / 分割</h2>
+<p>先看：</p>
+<pre><code class="language-text">ViT
+Swin
+DETR
+Mask2Former
+DINO
+SAM
 </code></pre>
-<p>真正的 EO foundation model 需要面对：</p>
-<ul>
-<li>optical / SAR / spectral modality；</li>
-<li>GSD；</li>
-<li>geography；</li>
-<li>season；</li>
-<li>temporal dynamics；</li>
-<li>domain shift。</li>
-</ul>
+<p>然后再回到具体的 oriented detection、semantic segmentation、change detection 文献。</p>
 <hr />
-<h2>主线 C：从 VLM 到 MLLM</h2>
-<pre><code class="language-text">Image ↔ Text Alignment
-→ Caption / VQA
-→ Visual Instruction Tuning
-→ Grounding
-→ Spatial Reasoning
-→ Reinforcement Learning
+<h2>如果准备做 Earth Foundation Model</h2>
+<p>建议围绕：</p>
+<pre><code class="language-text">SatMAE
+Scale-MAE
+CROMA
+SkySense
+Galileo
+Copernicus-FM
+TerraMind
+Prithvi-EO-2.0
+TESSERA
+PANGAEA
 </code></pre>
-<p>对应：</p>
+<p>重点始终放在：</p>
+<pre><code class="language-text">modality
+resolution
+scale
+temporal
+geography
+pretraining objective
+transfer protocol
+</code></pre>
+<p>而不是只看参数量。</p>
+<hr />
+<h2>如果准备做 Open-Vocabulary 遥感解译</h2>
+<p>先连起来看：</p>
 <pre><code class="language-text">CLIP
-→ BLIP-2 / LLaVA
-→ GeoChat
-→ GeoReason / RemoteReasoner / GeoViS
+Grounding DINO
+SAM
+RemoteCLIP
+SegEarth-OV
+SkySense-O
+SAM3
+</code></pre>
+<p>这样能够比较快理解：</p>
+<pre><code class="language-text">text embedding
+→ image-text alignment
+→ open-set detection
+→ promptable segmentation
+→ open-vocabulary dense prediction
 </code></pre>
 <hr />
-<h2>主线 D：从“模型”到“系统”</h2>
-<pre><code class="language-text">One Model
-→ MLLM
-→ MLLM + Expert Model
-→ Tool Calling
-→ Routing
-→ Agent
-→ Agentic Earth Observation
+<h2>如果准备做 VLM / MLLM</h2>
+<p>先看：</p>
+<pre><code class="language-text">CLIP
+BLIP-2
+LLaVA
+Qwen-VL
+GeoChat
+EarthDial
+TerraScope
 </code></pre>
-<p>最终需要研究的不再只是一个 backbone，而是：</p>
-<pre><code class="language-text">用户意图
-+
-多模态感知
-+
-推理
-+
-专业视觉模型
-+
-GIS / spectral tools
-+
-执行与反馈
+<p>重点关注：</p>
+<pre><code class="language-text">视觉信息如何进入 LLM？
+高分辨率图像如何处理？
+小目标如何定位？
+多传感器如何输入？
+多时相如何表达？
+答案如何与空间证据对齐？
 </code></pre>
 <hr />
-<h1>14. 阅读建议：不要把论文读成摘要收藏夹</h1>
-<p>对本文每篇论文，至少回答下面几个问题即可，不需要写长篇形式化笔记：</p>
+<h2>如果准备做 Agentic EO</h2>
+<p>先理解：</p>
+<pre><code class="language-text">MLLM
+Grounding
+SAM / Detector
+GIS / Spectral Tools
+</code></pre>
+<p>再看：</p>
+<pre><code class="language-text">TerraScope
+RemoteReasoner
+Earth-Agent
+OpenEarthAgent
+</code></pre>
+<p>Agent 论文里应该特别留意：</p>
+<pre><code class="language-text">Task decomposition
+Routing
+Tool schema
+Tool selection
+Tool parameter
+Observation
+Memory
+Trajectory
+Failure recovery
+Evaluation
+</code></pre>
+<hr />
+<h1>10. 阅读论文时只需要持续问几个问题</h1>
+<p>不必把每篇论文整理成很长的模板，但至少能回答：</p>
 <ol>
-<li><strong>它解决的真实问题是什么？</strong></li>
-<li><strong>以前最接近的方法为什么还不够？</strong></li>
-<li><strong>核心创新到底发生在数据、模型、训练、推理还是评测协议？</strong></li>
-<li><strong>哪些模块是作者真正提出的，哪些只是调用已有模型？</strong></li>
-<li><strong>训练阶段和测试阶段分别用了什么信息？</strong></li>
-<li><strong>是否使用额外数据、额外模型、GT、TTA 或在线优化？</strong></li>
-<li><strong>主表的比较是否公平？</strong></li>
-<li><strong>最重要的 ablation 在验证什么？</strong></li>
-<li><strong>代码中的入口文件、核心 module 和 evaluation script 在哪里？</strong></li>
-<li><strong>它最明显的 failure case 是什么？</strong></li>
+<li>这篇论文到底改变了哪个问题？</li>
+<li>输入和输出是什么？</li>
+<li>模型哪些部分是 frozen，哪些部分参与训练？</li>
+<li>用到了哪些 external model / external data？</li>
+<li>创新发生在 representation、architecture、training、inference、data 还是 benchmark？</li>
+<li>和最接近的方法相比，真正不同的地方是什么？</li>
+<li>评测协议是否一致？</li>
+<li>最关键的 ablation 在证明什么？</li>
+<li>代码中的核心 module 在哪里？</li>
+<li>这个方法在哪些场景仍然会失败？</li>
 </ol>
-<p>对科研新生来说，能回答这十个问题，比“看了多少篇论文”更重要。</p>
 <hr />
-<h1>15. 建议长期收藏的资源</h1>
-<h2>遥感基础模型</h2>
+<h1>11. 建议长期关注的代码与资料入口</h1>
+<h2>通用视觉</h2>
 <ul>
+<li><p>Hugging Face Transformers<br />
+https://github.com/huggingface/transformers</p>
+</li>
+<li><p>OpenMMLab<br />
+https://github.com/open-mmlab</p>
+</li>
+</ul>
+<h2>Earth Foundation Model</h2>
+<ul>
+<li><p>PANGAEA<br />
+https://github.com/VMarsocci/pangaea-bench</p>
+</li>
+<li><p>IBM TerraTorch<br />
+https://github.com/IBM/terratorch</p>
+</li>
 <li><p>Awesome Remote Sensing Foundation Models<br />
 https://github.com/Jack-bo1220/Awesome-Remote-Sensing-Foundation-Models</p>
-</li>
-<li><p>Foundation Models for Remote Sensing and Earth Observation<br />
-https://github.com/xiaoaoran/awesome-RSFMs</p>
 </li>
 </ul>
 <h2>遥感 MLLM</h2>
@@ -923,27 +1113,36 @@ https://github.com/ZhanYang-nwpu/Awesome-Remote-Sensing-Multimodal-Large-Languag
 <li>Awesome Geo-Agent<br />
 https://github.com/ChristmasLatte/Awesome-Geo-Agent</li>
 </ul>
-<h2>变化检测</h2>
-<ul>
-<li>Remote Sensing Change Detection Resources<br />
-https://github.com/juncyan/remote-sensing-change-detection</li>
-</ul>
 <hr />
 <h1>结语</h1>
-<p>如果只记住一件事：</p>
-<blockquote>
-<p><strong>不要追着最新模型名字跑，要追技术问题的演进。</strong></p>
-</blockquote>
-<p>ViT 告诉我们如何用 Transformer 看图；<br />
-CLIP 让视觉与语言进入同一个语义空间；<br />
-Grounding DINO 把语言落到目标位置；<br />
-SAM 把分割变成 promptable foundation task；<br />
-SAM3 又进一步把文本概念引入检测、分割和跟踪；<br />
-DINOv3 展示强自监督视觉表征的价值；<br />
-遥感领域再把这些能力推进到多尺度、多时相、多传感器和开放词汇；<br />
-MLLM 开始进行地理空间推理；<br />
-Agent 则进一步决定<strong>什么时候应该推理，什么时候应该调用真正的 EO 专业工具</strong>。</p>
-<p>理解这条主线，新生就不会在一年后只记住一堆已经过时的模型名，而能够继续读懂下一代工作。</p>
+<p>快速进入这个方向，不需要先把所有遥感算法和所有大模型都学一遍。</p>
+<p>更有效的方法是先建立几个连接：</p>
+<pre><code class="language-text">ViT → Transformer Vision
+CLIP → Vision-Language
+DINO → Visual Representation
+Grounding DINO → Text-to-Object
+SAM → Prompt-to-Mask
+LLaVA / Qwen-VL → Multimodal Reasoning
+</code></pre>
+<p>然后理解遥感为什么会增加新的变量：</p>
+<pre><code class="language-text">GSD
+Scale
+Spectral Band
+SAR
+Multi-sensor
+Multi-temporal
+Geo-context
+High Resolution
+Small Object
+</code></pre>
+<p>最后再去看当前研究如何把这些问题推向：</p>
+<pre><code class="language-text">Earth Foundation Model
+Open-Vocabulary Perception
+Grounded MLLM
+Geospatial Reasoning
+Agentic Earth Observation
+</code></pre>
+<p>这样以后出现新的模型时，就不需要重新从模型名字开始学，而能够直接判断它属于哪条技术主线、解决的是哪一个尚未解决的问题。</p>
 </article>
       <footer class="page-footer">
         <p>Remote Sensing AI Research Guide · Updated Sep. 2026</p>
@@ -951,6 +1150,7 @@ Agent 则进一步决定<strong>什么时候应该推理，什么时候应该调
       </footer>
     </main>
   </div>
+
   <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <script src="./assets/guide.js"></script>
