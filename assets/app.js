@@ -61,6 +61,20 @@
     }
   }
 
+  function renderNews() {
+    const container = $('#news-list');
+    if (!container) return;
+    container.innerHTML = data.news.items.map((item) => `
+      <article class="news-item">
+        <div class="news-period">${escapeHTML(localized(item.period))}</div>
+        <div class="news-body">
+          <p>${escapeHTML(localized(item.text))}</p>
+          ${item.url ? `<a class="news-link" href="${escapeHTML(item.url)}" target="_blank" rel="noreferrer"><span>${escapeHTML(localized(item.linkLabel || data.ui.common.details))}</span>${arrowIcon}</a>` : ''}
+        </div>
+      </article>
+    `).join('');
+  }
+
   function renderEducation() {
     const container = $('#education-list');
     if (!container) return;
@@ -194,6 +208,7 @@
   function render() {
     renderTextBindings();
     renderAbout();
+    renderNews();
     renderEducation();
     renderHonors();
     renderResearch();

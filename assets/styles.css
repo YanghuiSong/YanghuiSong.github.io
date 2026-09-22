@@ -396,3 +396,49 @@ html[data-lang="zh"] .section-kicker { text-transform: none; letter-spacing: .08
   .portrait-frame { box-shadow: none; }
   .contact-section { background: #fff !important; color: #111 !important; }
 }
+
+/* News */
+.news-list { border-top: 1px solid var(--line-strong); }
+.news-item {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.news-period {
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.news-body { min-width: 0; }
+.news-body p {
+  margin: 0;
+  max-width: 790px;
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  color: var(--accent-ink);
+  font-size: 11.5px;
+  font-weight: 760;
+}
+.news-link svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.news-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 560px) {
+  .news-item { grid-template-columns: 1fr; gap: 7px; padding: 20px 0; }
+  .news-body p { font-size: 14px; }
+}

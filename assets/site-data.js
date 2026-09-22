@@ -1,10 +1,3 @@
-/**
- * Yanghui Song — academic homepage content
- * ------------------------------------------------------------
- * Routine updates should happen in this file only.
- * Keep zh/en pairs synchronized. The interface is English-first,
- * while a visitor's manual language choice is remembered locally.
- */
 window.SITE_DATA = {
   settings: {
     defaultLanguage: 'en',
@@ -50,6 +43,7 @@ window.SITE_DATA = {
   ui: {
     nav: {
       about: { zh: '简介', en: 'About' },
+      news: { zh: '动态', en: 'News' },
       education: { zh: '教育经历', en: 'Education' },
       honors: { zh: '荣誉', en: 'Honors' },
       research: { zh: '研究方向', en: 'Research' },
@@ -70,7 +64,8 @@ window.SITE_DATA = {
       allRepositories: { zh: '全部 GitHub 仓库', en: 'All GitHub repositories' },
       selected: { zh: '代表作', en: 'Selected work' },
       present: { zh: '至今', en: 'Present' },
-      officialNotice: { zh: '官方链接', en: 'Official notice' }
+      officialNotice: { zh: '官方链接', en: 'Official notice' },
+      details: { zh: '查看', en: 'View' }
     },
     accessibility: {
       skip: { zh: '跳转到主要内容', en: 'Skip to main content' },
@@ -128,6 +123,50 @@ window.SITE_DATA = {
     ]
   },
 
+
+  news: {
+    kicker: { zh: '近期动态', en: 'News' },
+    title: { zh: '近期重要进展', en: 'Recent highlights' },
+    items: [
+      {
+        period: { zh: '2026', en: '2026' },
+        text: {
+          zh: 'ProC-SAM3 正式发表，研究聚焦开放词汇遥感语义分割中的提示校准与冻结基础模型推理。',
+          en: 'ProC-SAM3 was published, focusing on prompt calibration and frozen foundation-model inference for open-vocabulary remote-sensing semantic segmentation.'
+        },
+        url: 'https://ieeexplore.ieee.org/abstract/document/11609477',
+        linkLabel: { zh: '论文', en: 'Paper' }
+      },
+      {
+        period: { zh: '2026.05', en: 'May 2026' },
+        text: {
+          zh: '获评 2025—2026 学年省级五好学生、2026 届优秀毕业生。',
+          en: 'Named a Provincial Five-Good Student for 2025–2026 and an Outstanding Graduate of the Class of 2026.'
+        },
+        url: 'https://jyt.yn.gov.cn/article/2147452911',
+        linkLabel: { zh: '官方链接', en: 'Official notice' }
+      },
+      {
+        period: { zh: '2026.01', en: 'Jan. 2026' },
+        text: {
+          zh: '获评云南师范大学校级优秀毕业生。',
+          en: 'Named an Outstanding Graduate of Yunnan Normal University.'
+        },
+        url: 'https://ynnu.jysd.com/news/view/aid/341849/tag/tzgg',
+        linkLabel: { zh: '官方链接', en: 'Official notice' }
+      },
+      {
+        period: { zh: '2025.10', en: 'Oct. 2025' },
+        text: {
+          zh: '获得 2024—2025 学年本科生国家奖学金。',
+          en: 'Received the National Scholarship for Undergraduate Students for the 2024–2025 academic year.'
+        },
+        url: 'https://cic.ynnu.edu.cn/info/1069/1496.htm',
+        linkLabel: { zh: '官方链接', en: 'Official notice' }
+      }
+    ]
+  },
+
   education: {
     kicker: { zh: '教育经历', en: 'Education' },
     title: {
@@ -158,8 +197,8 @@ window.SITE_DATA = {
       en: 'Selected honors and distinctions'
     },
     intro: {
-      zh: '按时间倒序记录具有代表性的奖学金与荣誉称号。后续新增条目只需继续在本配置数组中追加。',
-      en: 'Selected scholarships and distinctions are listed in reverse chronological order. Future honors can be added directly to this configuration array.'
+      zh: '本科阶段获得的代表性荣誉与奖励。',
+      en: 'Selected honors and distinctions received during undergraduate study.'
     },
     items: [
       {
@@ -208,8 +247,8 @@ window.SITE_DATA = {
       en: 'Three connected directions for open-world Earth observation'
     },
     intro: {
-      zh: '研究方向保持集中：以遥感基础模型为能力底座，以开放词汇分割为核心任务，以鲁棒与高效推理为真实应用约束。',
-      en: 'My research is intentionally focused: geospatial foundation models provide the capability base, open-vocabulary segmentation is a central task, and robust efficient inference provides the real-world constraint.'
+      zh: '围绕遥感基础模型、开放词汇理解与复杂场景下的可靠推理，探索面向真实地球观测任务的视觉智能方法。',
+      en: 'My work connects geospatial foundation models, open-vocabulary understanding, and reliable inference for real-world Earth observation.'
     },
     items: [
       {
@@ -236,7 +275,7 @@ window.SITE_DATA = {
   publications: {
     kicker: { zh: '学术论文', en: 'Publications' },
     title: { zh: '代表性研究成果', en: 'Selected publications' },
-    intro: { zh: '论文条目由配置文件统一生成；以后新增论文只需在本文件中追加一项。', en: 'Publication entries are generated from this configuration file, so future papers can be added without editing page markup.' },
+    intro: { zh: '遥感图像智能解译方向的代表性同行评议研究成果。', en: 'Selected peer-reviewed work in remote-sensing image intelligence.' },
     items: [
       {
         id: 'proc-sam3',
@@ -284,7 +323,7 @@ window.SITE_DATA = {
   projects: {
     kicker: { zh: '开源项目', en: 'Projects' },
     title: { zh: '研究代码与开源资源', en: 'Research code and open-source resources' },
-    intro: { zh: '项目区只保留与研究主线直接相关的仓库，避免主页信息过载。', en: 'Only repositories directly related to the research agenda are highlighted here to keep the homepage focused.' },
+    intro: { zh: '与遥感图像智能解译相关的开源实现、实验代码与研究资源。', en: 'Open-source implementations, experimental code, and research resources for remote-sensing image intelligence.' },
     items: [
       {
         repo: 'ProC-SAM3',
