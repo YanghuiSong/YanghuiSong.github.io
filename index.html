@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang="en" data-lang="en" data-theme="light">
+<html lang="en" data-lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="Yanghui Song" />
-  <meta name="description" content="Academic homepage of Yanghui Song. Research interests include intelligent interpretation of remote-sensing imagery, geospatial foundation models, open-vocabulary segmentation, and robust test-time inference." />
-  <meta name="theme-color" content="#f7f8f7" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Yanghui Song | Remote-Sensing Image Intelligence" />
-  <meta property="og:description" content="Research in geospatial foundation models, open-vocabulary segmentation, and robust test-time inference." />
-  <meta property="og:image" content="assets/og-cover.svg" />
-  <meta property="og:url" content="https://yanghuisong.github.io/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://yanghuisong.github.io/" />
-  <title>Yanghui Song | Remote-Sensing Image Intelligence</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="assets/profile-photo-small.webp" as="image" type="image/webp" />
-  <link rel="stylesheet" href="assets/styles.css" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Yanghui Song">
+  <meta name="description" content="Yanghui Song — research in intelligent interpretation of remote-sensing imagery, visual grounding and open-vocabulary segmentation.">
+  <meta name="theme-color" content="#fbfcfd">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yanghui Song | Academic Homepage">
+  <meta property="og:description" content="Remote-sensing image interpretation, visual grounding and foundation models.">
+  <meta property="og:image" content="https://yanghuisong.github.io/assets/og-cover.svg">
+  <meta property="og:url" content="https://yanghuisong.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yanghuisong.github.io/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" as="image" type="image/webp" href="assets/profile-photo-small.webp">
+  <link rel="stylesheet" href="assets/styles.css">
+  <title>Yanghui Song | Academic Homepage</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,262 +25,97 @@
     "alternateName": "宋杨辉",
     "url": "https://yanghuisong.github.io/",
     "email": "mailto:yanghuisong55@gmail.com",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Yunnan Normal University"
-    },
-    "sameAs": [
-      "https://github.com/YanghuiSong",
-      "https://scholar.google.com/citations?user=zi6ZBp8AAAAJ"
-    ],
-    "award": [
-      "National Scholarship for Undergraduate Students, 2024–2025 Academic Year",
-      "Outstanding Graduate, Yunnan Normal University",
-      "Provincial Five-Good Student (2025–2026) and Outstanding Graduate, Class of 2026"
-    ],
-    "knowsAbout": [
-      "Remote sensing image interpretation",
-      "Geospatial foundation models",
-      "Open-vocabulary semantic segmentation",
-      "Robust test-time inference"
-    ]
+    "affiliation": {"@type":"CollegeOrUniversity","name":"Yunnan Normal University"},
+    "sameAs": ["https://github.com/YanghuiSong", "https://scholar.google.com/citations?user=zi6ZBp8AAAAJ"],
+    "knowsAbout": ["Remote sensing image interpretation", "Remote sensing visual grounding", "Open-vocabulary semantic segmentation", "Geospatial foundation models"]
   }
   </script>
-
   <script>
     (() => {
       try {
-        const storedLanguage = localStorage.getItem('site-language');
-        const language = storedLanguage === 'zh' || storedLanguage === 'en' ? storedLanguage : 'en';
-        const storedTheme = localStorage.getItem('site-theme');
-        const theme = storedTheme === 'dark' || storedTheme === 'light'
-          ? storedTheme
-          : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.dataset.lang = language;
-        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
-        document.documentElement.dataset.theme = theme;
-      } catch (_) {}
+        document.documentElement.dataset.lang = localStorage.getItem('site-language') === 'zh' ? 'zh' : 'en';
+        document.documentElement.lang = document.documentElement.dataset.lang === 'zh' ? 'zh-CN' : 'en';
+      } catch (_) { document.documentElement.dataset.lang = 'en'; }
     })();
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-text="ui.accessibility.skip">Skip to main content</a>
-
+  <a class="skip-link" href="#main" data-i18n="ui.skip">Skip to main content</a>
   <header class="site-header" id="top">
-    <div class="container nav-shell">
-      <a class="brand" href="#top" aria-label="Yanghui Song homepage">
-        <span class="brand-monogram" aria-hidden="true">YS</span>
-        <span class="brand-text">
-          <strong>Yanghui Song</strong>
-          <small data-text="profile.researchLabel">Intelligent Interpretation of Remote-Sensing Imagery</small>
-        </span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#about" data-text="ui.nav.about">About</a>
-        <a href="#news" data-text="ui.nav.news">News</a>
-        <a href="#education" data-text="ui.nav.education">Education</a>
-        <a href="#honors" data-text="ui.nav.honors">Honors</a>
-        <a href="#research" data-text="ui.nav.research">Research</a>
-        <a href="#publications" data-text="ui.nav.publications">Publications</a>
-        <a href="#projects" data-text="ui.nav.projects">Projects</a>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Yanghui Song homepage"><span class="brand-symbol">YS</span><span class="brand-name">Yanghui Song</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#about" data-i18n="ui.nav.about">About</a>
+        <a href="#news" data-i18n="ui.nav.news">News</a>
+        <a href="#publications" data-i18n="ui.nav.publications">Publications</a>
       </nav>
-
-      <div class="nav-actions">
-        <button class="icon-button language-toggle" type="button" aria-label="Switch to Chinese">
-          <span class="language-code">中</span>
-        </button>
-        <button class="icon-button theme-toggle" type="button" aria-label="Switch color theme">
-          <svg class="theme-icon moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/></svg>
-          <svg class="theme-icon sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.8"/><path d="M12 2.3v2.1M12 19.6v2.1M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M2.3 12h2.1M19.6 12h2.1M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"/></svg>
-        </button>
-        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
-          <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        </button>
-      </div>
+      <button type="button" class="language-toggle" aria-label="Switch to Chinese" title="中文 / English"><span class="language-code">中</span></button>
     </div>
-
-    <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
-      <a href="#about" data-text="ui.nav.about">About</a>
-      <a href="#news" data-text="ui.nav.news">News</a>
-      <a href="#education" data-text="ui.nav.education">Education</a>
-      <a href="#honors" data-text="ui.nav.honors">Honors</a>
-      <a href="#research" data-text="ui.nav.research">Research</a>
-      <a href="#publications" data-text="ui.nav.publications">Publications</a>
-      <a href="#projects" data-text="ui.nav.projects">Projects</a>
-      <a href="#contact" data-text="ui.nav.contact">Contact</a>
-    </nav>
   </header>
-
   <main id="main">
-    <section class="hero">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <div class="eyebrow"><span>RS // 01</span><span data-text="hero.eyebrow">Remote Sensing · Image Intelligence</span></div>
-          <p class="hero-intro" data-text="hero.intro">Hello, I am</p>
-          <h1><span>Yanghui Song</span><small>宋杨辉</small></h1>
-          <p class="hero-summary" data-text="hero.summary"></p>
-          <p class="hero-focus" data-text="hero.focus"></p>
-
-          <div class="hero-links">
-            <a class="button primary" data-profile-link="scholar" target="_blank" rel="noreferrer">
-              <span data-text="ui.common.scholar">Google Scholar</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
-            </a>
-            <a class="button secondary" data-profile-link="github" target="_blank" rel="noreferrer">
-              <span data-text="ui.common.github">GitHub</span>
-            </a>
-            <a class="text-link" data-profile-link="email"><span data-text="ui.common.email">Email</span></a>
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="container hero-inner">
+        <div class="intro">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Remote-Sensing Image Intelligence</p>
+          <h1 id="hero-name">Yanghui Song <span>宋杨辉</span></h1>
+          <p class="role" data-i18n="hero.role">Graduate Student · Yunnan Normal University</p>
+          <p class="summary" data-i18n="hero.summary"></p>
+          <p class="research-focus" data-i18n="hero.focus"></p>
+          <div class="social-links">
+            <a data-profile="scholar" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+            <a data-profile="github" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a data-profile="email" data-i18n="ui.email">Email</a>
           </div>
         </div>
-
-        <figure class="portrait-block">
-          <div class="portrait-frame">
-            <picture>
-              <source media="(max-width: 720px)" srcset="assets/profile-photo-small.webp" type="image/webp" />
-              <img src="assets/profile-photo.webp" alt="Portrait of Yanghui Song" width="1120" height="1400" fetchpriority="high" />
-            </picture>
-            <span class="geo-corner top-left" aria-hidden="true"></span>
-            <span class="geo-corner bottom-right" aria-hidden="true"></span>
-            <span class="geo-label" aria-hidden="true">25°N · 102°E</span>
-          </div>
-          <figcaption>
-            <span data-text="hero.portraitCaption">Yunnan Normal University · School of Information Science and Technology</span>
-            <span data-text="profile.location">Kunming, Yunnan, China</span>
-          </figcaption>
+        <figure class="portrait">
+          <picture>
+            <source media="(max-width: 680px)" srcset="assets/profile-photo-small.webp" type="image/webp">
+            <img src="assets/profile-photo.webp" width="1120" height="1400" alt="Portrait of Yanghui Song" fetchpriority="high">
+          </picture>
         </figure>
       </div>
     </section>
 
-    <section class="section section-soft" id="about" aria-labelledby="about-title">
-      <div class="container two-column-section">
-        <div class="section-heading">
-          <span class="section-index">01</span>
-          <span class="section-kicker" data-text="about.kicker">About</span>
-          <h2 id="about-title" data-text="about.title"></h2>
-        </div>
-        <div class="content-column">
-          <div class="about-prose" id="about-paragraphs"></div>
-          <dl class="fact-list" id="about-facts"></dl>
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container compact-section">
+        <h2 id="about-title" data-i18n="about.title">About</h2>
+        <div class="about-content">
+          <p data-i18n="about.bio"></p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="news" aria-labelledby="news-title">
-      <div class="container two-column-section">
-        <div class="section-heading">
-          <span class="section-index">02</span>
-          <span class="section-kicker" data-text="news.kicker">News</span>
-          <h2 id="news-title" data-text="news.title"></h2>
-        </div>
+    <section class="section news-section" id="news" aria-labelledby="news-title">
+      <div class="container compact-section">
+        <h2 id="news-title" data-i18n="news.title">News</h2>
         <div class="news-list" id="news-list"></div>
       </div>
     </section>
 
-    <section class="section section-soft" id="education" aria-labelledby="education-title">
-      <div class="container two-column-section">
-        <div class="section-heading">
-          <span class="section-index">03</span>
-          <span class="section-kicker" data-text="education.kicker">Education</span>
-          <h2 id="education-title" data-text="education.title"></h2>
-        </div>
-        <div class="timeline" id="education-list"></div>
-      </div>
-    </section>
-
-
-    <section class="section" id="honors" aria-labelledby="honors-title">
-      <div class="container two-column-section">
-        <div class="section-heading">
-          <span class="section-index">04</span>
-          <span class="section-kicker" data-text="honors.kicker">Honors & Awards</span>
-          <h2 id="honors-title" data-text="honors.title"></h2>
-          <p data-text="honors.intro"></p>
-        </div>
-        <div class="timeline honors-list" id="honors-list"></div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="research" aria-labelledby="research-title">
+    <section class="section publication-section" id="publications" aria-labelledby="publications-title">
       <div class="container">
-        <div class="section-heading wide-heading">
-          <span class="section-index">05</span>
-          <span class="section-kicker" data-text="research.kicker">Research</span>
-          <h2 id="research-title" data-text="research.title"></h2>
-          <p data-text="research.intro"></p>
-        </div>
-        <div class="research-list" id="research-list"></div>
-      </div>
-    </section>
-
-    <section class="section" id="publications" aria-labelledby="publications-title">
-      <div class="container">
-        <div class="section-heading wide-heading">
-          <span class="section-index">06</span>
-          <span class="section-kicker" data-text="publications.kicker">Publications</span>
-          <h2 id="publications-title" data-text="publications.title"></h2>
-          <p data-text="publications.intro"></p>
+        <div class="section-heading">
+          <h2 id="publications-title" data-i18n="publications.title">Publications</h2>
+          <p data-i18n="publications.subtitle">Selected peer-reviewed publications</p>
         </div>
         <div class="publication-list" id="publication-list"></div>
       </div>
     </section>
 
-    <section class="section section-soft" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <div class="section-heading projects-heading">
-          <div>
-            <span class="section-index">07</span>
-            <span class="section-kicker" data-text="projects.kicker">Projects</span>
-            <h2 id="projects-title" data-text="projects.title"></h2>
-            <p data-text="projects.intro"></p>
-          </div>
-          <a class="text-link repositories-link" data-profile-link="repositories" target="_blank" rel="noreferrer">
-            <span data-text="ui.common.allRepositories">All GitHub repositories</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
-          </a>
-        </div>
-        <div class="project-grid" id="project-grid"></div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="container contact-layout">
-        <div>
-          <span class="section-index">08</span>
-          <span class="section-kicker" data-text="contact.kicker">Contact</span>
-          <h2 id="contact-title" data-text="contact.title"></h2>
-          <p data-text="contact.text"></p>
-        </div>
-        <div class="contact-links">
-          <a data-profile-link="email"><span data-text="ui.common.email">Email</span><strong data-profile-email></strong></a>
-          <a data-profile-link="scholar" target="_blank" rel="noreferrer"><span data-text="ui.common.scholar">Google Scholar</span><strong>Scholar Profile</strong></a>
-          <a data-profile-link="github" target="_blank" rel="noreferrer"><span data-text="ui.common.github">GitHub</span><strong>@YanghuiSong</strong></a>
-        </div>
+    <section class="section honors-section" id="honors" aria-labelledby="honors-title">
+      <div class="container compact-section">
+        <h2 id="honors-title" data-i18n="honors.title">Honors</h2>
+        <div class="honor-list" id="honor-list"></div>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="container footer-row">
-      <span>© <span id="current-year"></span> Yanghui Song</span>
-      <span data-text="footer.note">Remote-Sensing Image Intelligence · GitHub Pages</span>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Yanghui Song</span>
+      <span data-i18n="footer.note">Yunnan Normal University · Remote-Sensing Image Interpretation</span>
+      <a href="#top" data-i18n="ui.back">Back to top ↑</a>
     </div>
   </footer>
-
-  <dialog class="figure-dialog" id="figure-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-shell">
-      <div class="dialog-head">
-        <strong id="dialog-title"></strong>
-        <button class="dialog-close" type="button" aria-label="Close publication figure">×</button>
-      </div>
-      <img id="dialog-image" alt="" />
-    </div>
-  </dialog>
-
-  <div class="toast" role="status" aria-live="polite" hidden></div>
-
   <script src="assets/site-data.js"></script>
   <script src="assets/app.js"></script>
 </body>

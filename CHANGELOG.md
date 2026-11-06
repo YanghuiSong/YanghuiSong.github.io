@@ -1,29 +1,19 @@
 # Changelog
 
-## v3.1 — Honors & Awards
+## V4.2 · November 2026
 
-- Added a dedicated bilingual Honors & Awards section between Education and Research.
-- Added three official-linked distinctions from 2025–2026 in reverse chronological order.
-- Added an Honors navigation entry on desktop and mobile.
-- Added structured `award` metadata for search engines.
-- Extended `assets/site-data.js` so future honors can be added without editing page markup.
-- Updated section numbering and alternating section backgrounds for clearer reading rhythm.
-- Expanded the Chinese maintenance guide with an honors-entry template.
+- Moved About above Publications, with a two-entry News section between them.
+- Moved the acknowledgement to the C2I-DINO News item; removed the standalone About acknowledgement.
+- Added compact, bilingual, linked paper updates for C2I-DINO (2026.10) and ProC-SAM3 (2026.07).
+- Preserved the light visual theme, both publication cards, portrait and Honors section.
 
-## v3.0 — Academic Focus
+# Changelog
 
-- Reworked the visual system toward a mainstream academic-homepage layout.
-- Removed metric-heavy and landing-page-like presentation from the hero.
-- Added a dedicated Education section and integrated the updated personal biography.
-- Set English as the first-visit default while retaining remembered visitor preference.
-- Strengthened Chinese typography and maintained Chinese content as an independent interface.
-- Simplified research cards, publication presentation, projects, and contact hierarchy.
-- Kept only restrained geospatial identity details: coordinate marker, grid, thin technical rules.
-- Removed unnecessary dynamic GitHub-star fetching and scroll-reveal effects.
-- Preserved zero-build GitHub Pages deployment and one-file routine content management.
+## V4.1 — 2026-11-06
 
-## v2.0
-
-- Introduced bilingual configuration-driven content.
-- Added publication figure viewing and per-paper BibTeX copying.
-- Added responsive dark/light themes and GitHub Pages workflow.
+- Added C2I-DINO (IEEE GRSL 2026) with the supplied figure and verified authors.
+- Moved publications directly after the introductory hero for faster access.
+- Softened the entire site palette and removed dark color surfaces.
+- Added a brief acknowledgement of Linghong Cai and Yongpeng Wen.
+- Kept English-first, bilingual rendering and a data-driven publication list.
+- Preserved profile images, ProC-SAM3 artwork and GitHub Pages workflow.
